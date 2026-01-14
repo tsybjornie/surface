@@ -1,5 +1,5 @@
 /**
- * Surface Art - Main JavaScript
+ * Surface Projects - Main JavaScript
  */
 
 document.addEventListener('DOMContentLoaded', () => {
