@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
     initAnimations();
+    initFAQ();
 });
 
 /**
@@ -114,4 +115,31 @@ function initAnimations() {
         }
     `;
     document.head.appendChild(styleSheet);
+}
+/**
+ * FAQ Accordion Logic
+ * Handles the expansion and contraction of FAQ items
+ */
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('h3');
+
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close other items (optional - depends on user preference)
+                // faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
 }
