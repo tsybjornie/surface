@@ -137,6 +137,30 @@ ul {
     margin-bottom: var(--spacing-md);
 }
 
+.mt-md {
+    margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+    margin-top: var(--spacing-lg);
+}
+
+.bg-light.alternate-bg {
+    background-color: var(--color-bg-secondary);
+}
+
+.bg-dark {
+    background-color: var(--color-text-primary);
+}
+
+.text-white {
+    color: var(--color-bg-primary);
+}
+
+.text-white h3, .text-white p {
+    color: var(--color-bg-primary);
+}
+
 /* ========================================
    HEADER & NAV
    ======================================== */
@@ -273,8 +297,18 @@ ul {
 .hero p {
     font-size: 1.25rem;
     color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.hero-subtext {
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-subtext p {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
     max-width: 600px;
-    margin: 0 auto var(--spacing-lg);
 }
 
 /* Animate */
@@ -765,6 +799,139 @@ ul {
 /* ========================================
    RESPONSIVE
    ======================================== */
+/* ========================================
+   NEW SECTION STYLES
+   ======================================== */
+
+/* Qualification Grid */
+.qualification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.qualify-item {
+    background: var(--color-bg-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.qualify-item p {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+}
+
+/* Systems Grid (Topical Authority) */
+.services-grid.large-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.service-card.dark {
+    background: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    padding: var(--spacing-lg);
+}
+
+.service-card.dark h3 {
+    color: var(--color-bg-primary);
+    border-bottom: 1px solid rgba(242, 240, 233, 0.2);
+    padding-bottom: var(--spacing-xs);
+}
+
+.service-card.dark p {
+    color: rgba(242, 240, 233, 0.8);
+}
+
+.check-list {
+    margin: var(--spacing-sm) 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.check-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+.note {
+    display: block;
+    margin-top: var(--spacing-sm);
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Process Steps */
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+}
+
+.step-num {
+    display: block;
+    font-size: 3rem;
+    font-family: var(--font-heading);
+    opacity: 0.1;
+    margin-bottom: -1.5rem;
+}
+
+.step h4 {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Alert Box */
+.alert-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-accent);
+    position: relative;
+}
+
+.alert-box h3 {
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* FAQ (Already had some but adding more consistency) */
+.faq-container {
+    max-width: 800px;
+}
+
+.faq-item h3 {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
