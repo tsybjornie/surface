@@ -157,7 +157,8 @@ ul {
     color: var(--color-bg-primary);
 }
 
-.text-white h3, .text-white p {
+.text-white h3,
+.text-white p {
     color: var(--color-bg-primary);
 }
 
@@ -876,33 +877,65 @@ ul {
     opacity: 0.7;
 }
 
-/* Process Steps */
+/* Process Steps - Horizontal Timeline */
 .process-steps {
     display: flex;
     justify-content: space-between;
     gap: var(--spacing-md);
-    flex-wrap: wrap;
+    position: relative;
+    margin-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+}
+
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 45px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: var(--color-border);
+    z-index: 0;
 }
 
 .step {
     flex: 1;
-    min-width: 200px;
     text-align: center;
     position: relative;
+    z-index: 1;
 }
 
 .step-num {
-    display: block;
-    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-accent);
     font-family: var(--font-heading);
-    opacity: 0.1;
-    margin-bottom: -1.5rem;
+    transition: all 0.3s ease;
+    opacity: 1;
+    /* Removed old opacity */
+}
+
+.step:hover .step-num {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent);
+    transform: scale(1.1);
 }
 
 .step h4 {
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 1;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    font-weight: 500;
 }
 
 /* Alert Box */
@@ -972,5 +1005,31 @@ ul {
 
     .hero h1 {
         font-size: 2.5rem;
+    }
+
+    /* Vertical Timeline for Mobile */
+    .process-steps {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .process-steps::before {
+        left: 30px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: auto;
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: var(--spacing-md);
+    }
+
+    .step-num {
+        margin: 0;
+        flex-shrink: 0;
     }
 }
