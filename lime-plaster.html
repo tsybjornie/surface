@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lime Plaster | Surface Project Singapore</title>
+    <title>Lime Plaster Singapore | Venetian & Mineral Plasters | Plain Work</title>
     <meta name="description"
-        content="Hand-applied mineral plaster for feature walls. Available in 3 patterns: Smooth Trowel, Natural Movement, and Stone Texture.">
+        content="Artisanal lime plaster systems in Singapore. From Venetian plaster to coarse mineral finishes, we execute hand-applied texture for architectural feature walls.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,53 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- JSON-LD Structured Data (Breadcrumbs) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://plainwork.sg/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Systems",
+        "item": "https://plainwork.sg/index.html#systems"
+      },{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Lime Plaster",
+        "item": "https://plainwork.sg/lime-plaster.html"
+      }]
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data (Service) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Lime Plaster Systems",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Plain Work",
+        "url": "https://plainwork.sg/"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Singapore"
+      },
+      "description": "Hand-applied mineral plaster creating depth, tactility, and architectural presence. Available in Smooth Trowel, Natural Movement, and Stone Texture patterns.",
+      "offers": {
+        "@type": "Offer",
+        "description": "Samples mandatory. Surface assessment required."
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -27,7 +74,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container nav-wrapper">
-            <a href="index.html" class="brand-logo">Surface Project</a>
+            <a href="index.html" class="brand-logo">Plain Work</a>
 
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
@@ -50,7 +97,13 @@
     <!-- Detail Page Hero -->
     <section class="detail-hero">
         <div class="container">
-            <a href="index.html#services" class="back-link">&larr; Back to Services</a>
+            <nav aria-label="Breadcrumb">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#systems">Systems</a></li>
+                    <li class="current">Lime Plaster</li>
+                </ul>
+            </nav>
             <h1>Lime Plaster</h1>
             <p class="hero-intro">
                 Hand-applied mineral plaster designed to create depth, texture, and tactility.
@@ -167,12 +220,41 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #2c2c2c; color: #e6e2d6; padding: 4rem 0;">
-        <div class="container text-center">
-            <h3 style="color: #e6e2d6; margin-bottom: 2rem;">Surface Project</h3>
-            <p style="opacity: 0.7; margin-bottom: 2rem;">bringing texture to life in Singapore.</p>
-            <div style="opacity: 0.5; font-size: 0.9rem;">
-                &copy; 2026 Surface Project. All rights reserved.
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column branding">
+                <a href="index.html" class="footer-logo">Plain Work</a>
+                <p>Designing and executing architectural surface systems in Singapore. Specified for the environment.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Systems</h4>
+                <ul class="footer-links">
+                    <li><a href="lime-paint.html">Lime Paint Singapore</a></li>
+                    <li><a href="microcement.html">Microcement Singapore</a></li>
+                    <li><a href="lime-plaster.html">Lime Plaster Singapore</a></li>
+                    <li><a href="liquid-metal.html">Liquid Metal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://wa.me/6512345678" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Plain Work. All rights reserved.</p>
             </div>
         </div>
     </footer>

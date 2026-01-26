@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Surface Project Singapore</title>
+    <title>FAQ | Plain Work Singapore</title>
     <meta name="description"
         content="Common questions about mineral finishes, material selection, and our process. Understand expectations before requesting evaluation.">
 
@@ -20,6 +20,75 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- JSON-LD Structured Data (FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is lime paint suitable for Singapore’s humidity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, when specified correctly. However, surface systems are not a substitute for structural waterproofing. We are not liable for failures caused by existing building leaks or rising damp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is your refund policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As our systems are bespoke and hand-applied, projects are strictly non-refundable once surface preparation or application has commenced."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide warranty for touch-ups?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide a handover warranty for application defects. Any damage post-handover (moving, cleaning, other contractors) is strictly chargeable at current rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you match reference images exactly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Reference images are for tone direction only. Natural variation, tonal shifts, and hand strokes are material properties and are not classified as defects."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I want a perfectly uniform finish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mineral and artisanal finishes are inherently non-uniform. If you require zero variation, our systems are not suitable for your project."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data (Breadcrumbs) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Plain Work",
+        "item": "https://plainwork.sg/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "FAQ",
+        "item": "https://plainwork.sg/faq.html"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -27,7 +96,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container nav-wrapper">
-            <a href="index.html" class="brand-logo">Surface Project</a>
+            <a href="index.html" class="brand-logo">Plain Work</a>
 
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
@@ -47,7 +116,12 @@
     <!-- FAQ Hero -->
     <section class="detail-hero">
         <div class="container">
-            <a href="index.html" class="back-link">&larr; Back to Home</a>
+            <nav aria-label="Breadcrumb">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">FAQ</li>
+                </ul>
+            </nav>
             <h1>Frequently Asked Questions</h1>
             <p class="hero-intro">
                 Common questions about mineral finishes, expectations, and our process.
@@ -222,7 +296,7 @@
 
                 <div class="faq-item">
                     <h3>Are you liable for failures caused by the building?</h3>
-                    <p>No. Surface Project is not liable for failures caused by structural defects, water ingress from
+                    <p>No. Plain Work is not liable for failures caused by structural defects, water ingress from
                         window frames, rising damp from slabs, or leaking pipes discovered after our initial assessment.
                         Surface systems are finishes, not structural waterproofing repairs.</p>
                 </div>
@@ -355,7 +429,7 @@
 
             <div class="faq-container">
                 <div class="faq-item">
-                    <h3>Who is Surface Project NOT suitable for?</h3>
+                    <h3>Who is Plain Work NOT suitable for?</h3>
                     <p>Our systems are not suitable for clients expecting plastic-like uniformity, zero natural
                         variation, or those looking for the cheapest possible quote regardless of environment. We
                         specialize in high-performance, artisanal surface systems for informed clients.</p>
@@ -374,13 +448,41 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #2c2c2c; color: #e6e2d6; padding: 4rem 0;">
-        <div class="container text-center">
-            <h3 style="color: #e6e2d6; margin-bottom: 2rem;">Surface Project</h3>
-            <p style="opacity: 0.7; margin-bottom: 2rem;">Designing and executing architectural surface systems in
-                Singapore.</p>
-            <div style="opacity: 0.5; font-size: 0.9rem;">
-                &copy; 2026 Surface Project. All rights reserved.
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column branding">
+                <a href="index.html" class="footer-logo">Plain Work</a>
+                <p>Designing and executing architectural surface systems in Singapore. Specified for the environment.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Systems</h4>
+                <ul class="footer-links">
+                    <li><a href="lime-paint.html">Lime Paint Singapore</a></li>
+                    <li><a href="microcement.html">Microcement Singapore</a></li>
+                    <li><a href="lime-plaster.html">Lime Plaster Singapore</a></li>
+                    <li><a href="liquid-metal.html">Liquid Metal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://wa.me/6512345678" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Plain Work. All rights reserved.</p>
             </div>
         </div>
     </footer>

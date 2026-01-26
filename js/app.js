@@ -1,5 +1,5 @@
 /**
- * Surface Project - Main JavaScript
+ * Plain Work - Main JavaScript
  */
 
 document.addEventListener('DOMContentLoaded', () => {

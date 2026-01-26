@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lime Paint | Surface Project Singapore</title>
+    <title>Lime Paint Singapore | Breathable Mineral Finishes | Plain Work</title>
     <meta name="description"
-        content="Breathable mineral lime paint with soft matte texture. Available in 4 stroke styles: Soft Cloud, Linear Wash, Cross-Brushed, and Minimal Smooth.">
+        content="Bespoke lime paint systems for Singapore's humidity. Breathable mineral finishes available in 4 stroke styles. Prevent peeling and mold with technical surface specification.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,55 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- JSON-LD Structured Data (Breadcrumbs) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://plainwork.sg/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Systems",
+        "item": "https://plainwork.sg/index.html#systems"
+      },{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Lime Paint",
+        "item": "https://plainwork.sg/lime-paint.html"
+      }]
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data (Service) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Lime Paint Systems",
+      "serviceType": "Architectural Surface Finish",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Plain Work",
+        "url": "https://plainwork.sg/"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Singapore"
+      },
+      "description": "Breathable mineral paint systems that allow walls to release moisture rather than trap it. Specified for Singapore's humidity to prevent peeling and mold. Available in Multiple finishes: Soft Cloud, Linear Wash, and Cross-Brushed.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStoreOnly",
+        "description": "Bespoke application following technical surface assessment."
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -27,7 +76,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container nav-wrapper">
-            <a href="index.html" class="brand-logo">Surface Project</a>
+            <a href="index.html" class="brand-logo">Plain Work</a>
 
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
@@ -50,11 +99,18 @@
     <!-- Detail Page Hero -->
     <section class="detail-hero">
         <div class="container">
-            <a href="index.html#services" class="back-link">&larr; Back to Services</a>
+            <nav aria-label="Breadcrumb">
+                <ul class="breadcrumbs">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#systems">Systems</a></li>
+                    <li class="current">Lime Paint</li>
+                </ul>
+            </nav>
             <h1>Lime Paint</h1>
             <p class="hero-intro">
-                A breathable mineral paint with soft matte texture and natural tonal movement.
-                Applied by hand, lime paint responds to light, space, and time.
+                What is lime paint? It is a breathable mineral paint system that creates a soft matte texture with
+                natural tonal movement. Unlike synthetic paints, lime paint allows moisture to evaporate from walls,
+                making it ideal for Singapore's high-humidity environments.
             </p>
         </div>
     </section>
@@ -181,12 +237,41 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #2c2c2c; color: #e6e2d6; padding: 4rem 0;">
-        <div class="container text-center">
-            <h3 style="color: #e6e2d6; margin-bottom: 2rem;">Surface Project</h3>
-            <p style="opacity: 0.7; margin-bottom: 2rem;">bringing texture to life in Singapore.</p>
-            <div style="opacity: 0.5; font-size: 0.9rem;">
-                &copy; 2026 Surface Project. All rights reserved.
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column branding">
+                <a href="index.html" class="footer-logo">Plain Work</a>
+                <p>Designing and executing architectural surface systems in Singapore. Specified for the environment.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Systems</h4>
+                <ul class="footer-links">
+                    <li><a href="lime-paint.html">Lime Paint Singapore</a></li>
+                    <li><a href="microcement.html">Microcement Singapore</a></li>
+                    <li><a href="lime-plaster.html">Lime Plaster Singapore</a></li>
+                    <li><a href="liquid-metal.html">Liquid Metal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://wa.me/6512345678" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Plain Work. All rights reserved.</p>
             </div>
         </div>
     </footer>
