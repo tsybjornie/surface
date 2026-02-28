@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal | Plain Work Singapore</title>
+    <meta name="description"
+        content="Plain Work project journal — real case studies from HDB flats, condominiums, and commercial spaces across Singapore. Lime paint, microcement, patina finishes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* ── Journal Hero ── */
+        .journal-hero {
+            background: var(--color-bg-primary);
+            color: #fff;
+            padding: 9rem 0 4rem;
+        }
+
+        .journal-hero .eyebrow {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.4;
+            margin-bottom: 1.25rem;
+        }
+
+        .journal-hero h1 {
+            font-family: var(--font-editorial);
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .journal-hero p {
+            opacity: 0.55;
+            max-width: 520px;
+            font-size: 0.95rem;
+        }
+
+        .journal-filter {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .filter-chip {
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .filter-chip.active,
+        .filter-chip:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ── Case Study entries ── */
+        .case-studies {
+            background: var(--color-bg-warm);
+            padding: 5rem 0;
+        }
+
+        .case-study {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-bottom: 6rem;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+        }
+
+        .case-study:nth-child(even) {
+            direction: rtl;
+        }
+
+        .case-study:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .case-study-gallery {
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .case-study-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .case-study:hover .case-study-gallery img {
+            transform: scale(1.04);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+        }
+
+        .case-study-body {
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cs-meta {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .cs-tag {
+            display: inline-block;
+            background: var(--color-bg-warm-2);
+            color: #6b5f56;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .cs-tag.highlight {
+            background: #1a1714;
+            color: #fff;
+        }
+
+        .case-study-body h2 {
+            font-family: var(--font-editorial);
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-style: italic;
+            font-weight: 400;
+            color: #1a1714;
+            line-height: 1.25;
+            margin-bottom: 0.5rem;
+        }
+
+        .cs-location {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9a8f86;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-body p {
+            color: #5a4f46;
+            line-height: 1.75;
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
+        }
+
+        .cs-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem 1.5rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--color-bg-warm);
+            border-radius: 12px;
+        }
+
+        .cs-spec-item .label {
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9a8f86;
+            margin-bottom: 0.25rem;
+        }
+
+        .cs-spec-item .value {
+            font-size: 0.88rem;
+            color: #1a1714;
+            font-weight: 500;
+        }
+
+        .cs-quote {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #5a4f46;
+            border-left: 2px solid var(--color-bg-warm-2);
+            padding-left: 1.25rem;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+        }
+
+        .cs-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #1a1714;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(26, 23, 20, 0.2);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+
+        .cs-read-more:hover {
+            border-color: #1a1714;
+        }
+
+        /* ── Resources strip ── */
+        .resources-strip {
+            background: var(--color-bg-warm-2);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .resources-strip h3 {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-pills {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .resource-pills a {
+            padding: 0.6rem 1.5rem;
+            border: 1px solid rgba(26, 23, 20, 0.15);
+            border-radius: 999px;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: #1a1714;
+            text-decoration: none;
+            background: #fff;
+            transition: background 0.2s;
+        }
+
+        .resource-pills a:hover {
+            background: var(--color-bg-warm);
+        }
+
+        /* ── Coming soon card ── */
+        .coming-soon-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.05);
+            border: 2px dashed rgba(26, 23, 20, 0.08);
+        }
+
+        .coming-soon-card h3 {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .coming-soon-card p {
+            color: #5a4f46;
+            max-width: 400px;
+            margin: 0 auto 1.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .case-study {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study:nth-child(even) {
+                direction: ltr;
+            }
+
+            .case-study-gallery {
+                min-height: 280px;
+            }
+
+            .case-study-body {
+                padding: 2rem;
+            }
+
+            .cs-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo">Plain Work</a>
+            <nav class="nav-links">
+                <a href="systems.html">Systems</a>
+                <a href="journal.html">Journal</a>
+                <a href="faq.html">FAQ</a>
+                <a href="index.html#contact" class="btn">Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="journal-hero">
+        <div class="container">
+            <p class="eyebrow">Plain Work · Project Journal</p>
+            <h1>Field<br>Notes</h1>
+            <p>Real projects, honest documentation. Every entry is a record of what was specified, what was applied, and
+                what it looked like when done right.</p>
+            <div class="journal-filter">
+                <a href="#" class="filter-chip active">All Projects</a>
+                <a href="#hdb" class="filter-chip">HDB</a>
+                <a href="#condo" class="filter-chip">Condominium</a>
+                <a href="#commercial" class="filter-chip">Commercial</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Studies -->
+    <section class="case-studies">
+        <div class="container">
+
+            <!-- ── Case Study 1: HDB ── -->
+            <article class="case-study" id="hdb">
+                <div class="case-study-gallery">
+                    <img src="assets/hdb-lime-paint.png" alt="Lime paint HDB feature wall, Bishan">
+                    <div class="gallery-badge">Lime Wash Feature Wall — Singapore Residential</div>
+                </div>
+                <div class="case-study-body">
+                    <div class="cs-meta">
+                        <span class="cs-tag highlight">HDB</span>
+                        <span class="cs-tag">Lime Paint</span>
+                        <span class="cs-tag">Residential</span>
+                    </div>
+                    <h2>Terra Tone Feature Wall, 4-Room HDB</h2>
+                    <p class="cs-location">Bishan Street 24 &nbsp;·&nbsp; Completed Q4 2024</p>
+                    <p>The client had recently obtained keys to a freshly painted BTO. The HDB standard white emulsion
+                        was flat and felt temporary — they wanted one wall in the living room that felt considered.</p>
+                    <p>We specified lime paint in a warm terracotta-blush tone, applied in three coats with a dry-brush
+                        technique to create tonal depth. The wall now reads completely differently in morning versus
+                        evening light, which was exactly the brief.</p>
+                    <div class="cs-quote">"We've had visitors ask three times if we imported the paint from Italy. It's
+                        lime paint from Plain Work."</div>
+                    <div class="cs-specs">
+                        <div class="cs-spec-item">
+                            <div class="label">System Applied</div>
+                            <div class="value">Lime Paint — 3 coat</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Area</div>
+                            <div class="value">~24 sqm feature wall</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Substrate</div>
+                            <div class="value">Existing skim coat</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Timeline</div>
+                            <div class="value">2 days incl. curing</div>
+                        </div>
+                    </div>
+                    <a href="lime-paint.html" class="cs-read-more">Read about the Lime Paint system →</a>
+                </div>
+            </article>
+
+            <!-- ── Case Study 2: Condo ── -->
+            <article class="case-study" id="condo">
+                <div class="case-study-gallery">
+                    <img src="assets/condo-microcement.png" alt="Microcement bathroom, River Valley condo">
+                    <div class="gallery-badge">Microcement Wet Room — Singapore Condominium</div>
+                </div>
+                <div class="case-study-body">
+                    <div class="cs-meta">
+                        <span class="cs-tag highlight">Condominium</span>
+                        <span class="cs-tag">Microcement</span>
+                        <span class="cs-tag">Wet Area</span>
+                    </div>
+                    <h2>Seamless Wet Room, River Valley Condo</h2>
+                    <p class="cs-location">River Valley Road &nbsp;·&nbsp; Completed Q3 2024</p>
+                    <p>The client was renovating a 2-bedroom unit in an older development. The existing bathroom had
+                        standard ceramic tiles — grout lines, visual interruption, and a dated feel. The brief was a
+                        seamless, grout-free bathroom that could handle daily shower use.</p>
+                    <p>We assessed the existing substrate and specified a full waterproofing membrane before the
+                        microcement system. Both walls and floor were treated in a single warm grey tone. The continuous
+                        surface from wall to floor — no profile, no interruption — was the result the client wanted and
+                        what they got.</p>
+                    <div class="cs-quote">"The bathroom feels twice as large now. The grout lines were cutting the room
+                        into pieces."</div>
+                    <div class="cs-specs">
+                        <div class="cs-spec-item">
+                            <div class="label">System Applied</div>
+                            <div class="value">Microcement — 5 coat</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Area</div>
+                            <div class="value">~18 sqm (walls + floor)</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Substrate</div>
+                            <div class="value">Hacked tile + waterproof membrane</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Timeline</div>
+                            <div class="value">6 days incl. sealing</div>
+                        </div>
+                    </div>
+                    <a href="microcement.html" class="cs-read-more">Read about the Microcement system →</a>
+                </div>
+            </article>
+
+            <!-- ── Case Study 3: Commercial ── -->
+            <article class="case-study" id="commercial">
+                <div class="case-study-gallery">
+                    <img src="assets/patina-hero.png" alt="Lime plaster and patina, Keong Saik cafe">
+                    <div class="gallery-badge">Lime Plaster + Patina — Commercial F&B</div>
+                </div>
+                <div class="case-study-body">
+                    <div class="cs-meta">
+                        <span class="cs-tag highlight">Commercial</span>
+                        <span class="cs-tag">Lime Plaster</span>
+                        <span class="cs-tag">Patina & Oxidised</span>
+                    </div>
+                    <h2>Shophouse Café Interior, Keong Saik</h2>
+                    <p class="cs-location">Keong Saik Road &nbsp;·&nbsp; Completed Q2 2024</p>
+                    <p>A new specialty coffee concept in a conservation shophouse. The ID specified a material finish
+                        that referenced the building's age without being a pastiche of it — aged, textural, honest. The
+                        brief was no faux finishes: real materials, real texture.</p>
+                    <p>We applied hand-troweled lime plaster on the main feature wall and counter face, then introduced
+                        patina and oxidised treatment to the metal shelf brackets and bar front. The result is a surface
+                        language that sits alongside the original terrazzo floor and exposed brick without competing
+                        with it.</p>
+                    <div class="cs-quote">"We spec'd mineral finishes because we knew it had to last. Three years from
+                        now it'll look better, not worse."<br><span
+                            style="font-size:0.78rem;opacity:0.7;font-style:normal;">— Interior Designer, Atelier
+                            Luma</span></div>
+                    <div class="cs-specs">
+                        <div class="cs-spec-item">
+                            <div class="label">Systems Applied</div>
+                            <div class="value">Lime Plaster + Patina treatment</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Area</div>
+                            <div class="value">~60 sqm (walls + joinery)</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Substrate</div>
+                            <div class="value">Brick, plasterboard, mild steel</div>
+                        </div>
+                        <div class="cs-spec-item">
+                            <div class="label">Timeline</div>
+                            <div class="value">8 days across 3 trades</div>
+                        </div>
+                    </div>
+                    <a href="patina-oxidised.html" class="cs-read-more">Read about the Patina system →</a>
+                </div>
+            </article>
+
+            <!-- ── Coming soon card ── -->
+            <div class="coming-soon-card">
+                <p
+                    style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;opacity:0.4;margin-bottom:1rem;">
+                    More Coming</p>
+                <h3>Your project could be next.</h3>
+                <p>We document every project we're proud of. If you're planning a renovation or commercial fit-out, get
+                    in touch — and we'll make sure the result is worth writing about.</p>
+                <a href="index.html#contact" class="link-arrow" style="display:inline-block;color:#1a1714;">Book a
+                    consultation →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Resources strip -->
+    <div class="resources-strip">
+        <div class="container">
+            <h3>Useful reading before you enquire</h3>
+            <div class="resource-pills">
+                <a href="guide.html">Which finish suits your space?</a>
+                <a href="climate-guide.html">Singapore Climate Guide</a>
+                <a href="lookbook.html">Materials Lookbook</a>
+                <a href="faq.html">Common Questions</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column branding">
+                <a href="index.html" class="footer-logo">Plain Work</a>
+                <p>Architectural surface systems in Singapore. Specified for the environment.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Systems</h4>
+                <ul class="footer-links">
+                    <li><a href="lime-paint.html">Lime Paint</a></li>
+                    <li><a href="lime-plaster.html">Lime Plaster</a></li>
+                    <li><a href="microcement.html">Microcement</a></li>
+                    <li><a href="liquid-metal.html">Liquid Metal</a></li>
+                    <li><a href="patina-oxidised.html">Patina & Oxidised</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Journal</h4>
+                <ul class="footer-links">
+                    <li><a href="journal.html#hdb">HDB Projects</a></li>
+                    <li><a href="journal.html#condo">Condominium</a></li>
+                    <li><a href="journal.html#commercial">Commercial</a></li>
+                    <li><a href="guide.html">Finish Guide</a></li>
+                    <li><a href="lookbook.html">Lookbook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Plain Work. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6598004317" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.5 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
