@@ -275,17 +275,18 @@ ul {
     z-index: 1000;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
-    background: rgba(245, 242, 237, 0.82);
+    background: rgba(245, 242, 237, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 0, 0, 0.07);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
-    transition: background 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
+/* Elevated on scroll */
 .site-header.scrolled {
-    background: rgba(245, 242, 237, 0.96);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+    background: rgba(250, 248, 244, 1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.16);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
 }
@@ -1607,11 +1608,7 @@ ul {
     padding-bottom: 1px;
 }
 
-/* Scrolled header always dark on inner pages */
-.site-header.scrolled {
-    background: rgba(0, 0, 0, 0.97) !important;
-    backdrop-filter: blur(8px);
-}
+/* Nav pill is always warm white — no dark override needed */
 
 /* ========================================
    HERO BG — image support
