@@ -275,18 +275,18 @@ ul {
     z-index: 1000;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
-    background: rgba(245, 242, 237, 0.97);
+    background: rgba(15, 13, 11, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
-    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Elevated on scroll */
+/* Slightly more solid on scroll — stays dark */
 .site-header.scrolled {
-    background: rgba(250, 248, 244, 1);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.16);
+    background: rgba(10, 9, 7, 0.97);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
 }
@@ -304,7 +304,7 @@ ul {
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #1a1714;
+    color: #ffffff;
     white-space: nowrap;
 }
 
@@ -320,20 +320,20 @@ ul {
     font-weight: 400;
     text-transform: none;
     letter-spacing: 0.02em;
-    color: rgba(26, 23, 20, 0.7);
+    color: rgba(255, 255, 255, 0.75);
     position: relative;
     transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: #1a1714;
+    color: #ffffff;
 }
 
-/* Nav Consultation link — ghost text */
+/* Nav Consultation link — ghost text, white */
 .nav-links a.btn {
-    color: rgba(26, 23, 20, 0.75);
+    color: rgba(255, 255, 255, 0.85);
     border: none;
-    border-bottom: 1px solid rgba(26, 23, 20, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0;
     padding-bottom: 0.25rem;
     font-size: 0.72rem;
