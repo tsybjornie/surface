@@ -1933,3 +1933,33 @@ body:has(button:hover) .cursor-dot {
         transform: translateY(0);
     }
 }
+
+/* ========================================
+   DETAIL PAGE PRICING SECTION FIX
+   Forces warm/light background + dark readable text
+   so pricing cards are never dark-on-dark
+   ======================================== */
+#pricing {
+    background-color: var(--color-bg-warm) !important;
+    color: var(--color-text-dark) !important;
+}
+
+#pricing h2,
+#pricing h3,
+#pricing p,
+#pricing div {
+    color: var(--color-text-dark) !important;
+}
+
+#pricing .pricing-card {
+    background-color: var(--color-bg-warm-2) !important;
+    border-color: var(--color-border-warm-strong) !important;
+}
+
+#pricing [style*="background"] {
+    background-color: var(--color-bg-warm-2) !important;
+}
+
+#pricing .btn {
+    color: var(--color-white) !important;
+}
