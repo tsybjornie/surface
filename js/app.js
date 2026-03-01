@@ -1,72 +1,59 @@
 /**
- * Plain Work - Main JavaScript
+ * Plain Work — Main JavaScript
+ * Includes: navigation, scroll reveal, micro-animations, video hero
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
-    initAnimations();
+    initScrollReveal();
+    initMicroAnimations();
     initFAQ();
+    initVideoHero();
 });
 
-/**
- * Navigation Logic
- * Handles mobile menu toggle and sticky header state
- */
+/* ── Navigation ── */
 function initNavigation() {
     const header = document.querySelector('.site-header');
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-links a');
 
-    // Mobile Menu Toggle
-    mobileBtn.addEventListener('click', () => {
-        mobileBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            mobileBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+    }
 
-        // Prevent background scrolling when menu is open
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // Close mobile menu when a link is clicked
     links.forEach(link => {
         link.addEventListener('click', () => {
-            mobileBtn.classList.remove('active');
-            navLinks.classList.remove('active');
+            if (mobileBtn) mobileBtn.classList.remove('active');
+            if (navLinks) navLinks.classList.remove('active');
             document.body.style.overflow = '';
         });
     });
 
-    // Nav pill: always visible — elevate further on scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    }, { passive: true });
+    // Nav pill — always visible, elevates on scroll
+    if (header) {
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+    }
 }
 
-/**
- * Scroll Effects
- * Smooth scrolling for anchor links and simple parallax/reveal
- */
+/* ── Smooth scroll ── */
 function initScrollEffects() {
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
+            const el = document.querySelector(targetId);
+            if (el) {
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: el.getBoundingClientRect().top + window.pageYOffset - 90,
                     behavior: 'smooth'
                 });
             }
@@ -74,71 +61,127 @@ function initScrollEffects() {
     });
 }
 
-/**
- * Animations using Intersection Observer
- * Triggers fade-in animations when elements scroll into view
- */
-function initAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
+/* ── Scroll Reveal ──
+   Any element with class "reveal" fades + slides in when it enters viewport.
+   Supports: reveal-up (default), reveal-left, reveal-right, reveal-fade
+   Add delay with data-delay="200" (ms)
+*/
+function initScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                const el = entry.target;
+                const delay = el.dataset.delay || 0;
+                setTimeout(() => el.classList.add('revealed'), parseInt(delay));
+                observer.unobserve(el);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    // Elements to animate
-    const animatedElements = document.querySelectorAll('.service-card, .section-title, .about-content');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
+    // Auto-tag common elements if they don't have a class already
+    const autoReveal = [
+        '.section-title',
+        '.service-card',
+        '.about-content',
+        '.process-step',
+        '.faq-item',
+        '.case-study',
+        '.coming-soon-card',
+        '.cs-spec-item',
+        '.journal-hero h1',
+        '.stat-item',
+        '.feature-block',
+        '.system-card',
+    ];
+
+    autoReveal.forEach(selector => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            if (!el.classList.contains('reveal')) {
+                el.classList.add('reveal', 'reveal-up');
+                el.dataset.delay = i * 80;
+            }
+        });
     });
 
-    // Add 'visible' class checks to CSS to trigger the transition
-    // We inject a style block here or rely on CSS. 
-    // Let's rely on standard JS style manipulation for simplicity in this file.
-
-    // Helper to apply styles when visible
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = `
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(styleSheet);
+    // Also observe anything already tagged
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
-/**
- * FAQ Accordion Logic
- * Handles the expansion and contraction of FAQ items
- */
+
+/* ── Micro Animations ── */
+function initMicroAnimations() {
+    // Spot counter — count up from 0 to N
+    const spotsEl = document.querySelector('[data-spots-total]');
+    if (spotsEl) {
+        const total = parseInt(spotsEl.dataset.spotsTotal) || 10;
+        const taken = parseInt(spotsEl.dataset.spotsTaken) || 0;
+        const squares = spotsEl.querySelectorAll('.spot-square');
+        squares.forEach((sq, i) => {
+            setTimeout(() => {
+                sq.classList.add(i < taken ? 'spot-taken' : 'spot-open');
+            }, i * 120);
+        });
+    }
+
+    // Parallax drift on hero image
+    const heroBg = document.querySelector('.hero-bg img, .hero-video');
+    if (heroBg) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }, { passive: true });
+    }
+
+    // Hover micro-lift on cards
+    document.querySelectorAll('.service-card, .system-card, .case-study').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease';
+            card.style.transform = 'translateY(-6px)';
+            card.style.boxShadow = '0 16px 48px rgba(0,0,0,0.13)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+        });
+    });
+
+    // Cursor follower dot (subtle luxury touch)
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    document.body.appendChild(dot);
+    let curX = 0, curY = 0, dotX = 0, dotY = 0;
+    document.addEventListener('mousemove', e => { curX = e.clientX; curY = e.clientY; });
+    function animateDot() {
+        dotX += (curX - dotX) * 0.12;
+        dotY += (curY - dotY) * 0.12;
+        dot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+        requestAnimationFrame(animateDot);
+    }
+    animateDot();
+
+    // Hide cursor dot on touch devices
+    window.addEventListener('touchstart', () => dot.style.display = 'none', { once: true });
+}
+
+/* ── Video Hero ── */
+function initVideoHero() {
+    const video = document.querySelector('.hero-video-el');
+    if (!video) return;
+
+    // Ensure video plays on mobile (muted autoplay policy)
+    video.muted = true;
+    video.play().catch(() => {
+        // Fallback: show poster image if video can't play
+        video.closest('.hero-video-wrap')?.classList.add('no-video');
+    });
+}
+
+/* ── FAQ Accordion ── */
 function initFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
+    document.querySelectorAll('.faq-item').forEach(item => {
         const question = item.querySelector('h3');
-
         if (question) {
             question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-
-                // Close other items (optional - depends on user preference)
-                // faqItems.forEach(otherItem => otherItem.classList.remove('active'));
-
-                // Toggle current item
-                if (isActive) {
-                    item.classList.remove('active');
-                } else {
-                    item.classList.add('active');
-                }
+                item.classList.toggle('active');
             });
         }
     });
