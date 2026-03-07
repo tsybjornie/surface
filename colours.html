@@ -394,39 +394,51 @@
         .colour-swatch-inner {
             position: absolute;
             inset: 0;
-            background-image: url('images/lime-texture.png');
+            /* Default brush texture — texture 1 */
+            background-image: url('images/lime-brush-1.png');
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
         }
 
-        /* Vignette for depth — darker edges, lighter centre */
+        /* Rotate 4 different brush stroke textures across cards */
+        .colour-card:nth-child(4n+1) .colour-swatch-inner {
+            background-image: url('images/lime-brush-1.png');
+            background-position: 0% 0%;
+        }
+        .colour-card:nth-child(4n+2) .colour-swatch-inner {
+            background-image: url('images/lime-brush-2.png');
+            background-position: 30% 60%;
+        }
+        .colour-card:nth-child(4n+3) .colour-swatch-inner {
+            background-image: url('images/lime-brush-3.png');
+            background-position: 70% 20%;
+        }
+        .colour-card:nth-child(4n+4) .colour-swatch-inner {
+            background-image: url('images/lime-brush-4.png');
+            background-position: 50% 80%;
+        }
+
+        /* Extra position variety within same texture */
+        .colour-card:nth-child(8n+5) .colour-swatch-inner { background-position: 100% 100%; }
+        .colour-card:nth-child(8n+6) .colour-swatch-inner { background-position: 20% 90%; }
+        .colour-card:nth-child(8n+7) .colour-swatch-inner { background-position: 80% 10%; }
+        .colour-card:nth-child(8n+8) .colour-swatch-inner { background-position: 10% 50%; }
+
+        /* Vignette for depth */
         .colour-swatch::before {
             content: '';
             position: absolute;
             inset: 0;
             background: radial-gradient(ellipse at 45% 40%,
                 transparent 20%,
-                rgba(0,0,0,0.08) 100%);
+                rgba(0,0,0,0.06) 100%);
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Subtle grain layer for extra realism */
         .colour-swatch::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url('images/lime-texture.png');
-            background-size: 200px 200px;
-            z-index: 2;
-            pointer-events: none;
-            mix-blend-mode: soft-light;
-            opacity: 0.5;
-        }
-
-        .colour-card:hover .colour-swatch::after {
-            opacity: 0.6;
+            display: none;
         }
 
         .colour-info {
