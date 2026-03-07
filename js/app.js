@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMicroAnimations();
     initFAQ();
     initVideoHero();
+    initContactForm();
 });
 
 /* ── Navigation ── */
@@ -144,22 +145,7 @@ function initMicroAnimations() {
         });
     });
 
-    // Cursor follower dot (subtle luxury touch)
-    const dot = document.createElement('div');
-    dot.className = 'cursor-dot';
-    document.body.appendChild(dot);
-    let curX = 0, curY = 0, dotX = 0, dotY = 0;
-    document.addEventListener('mousemove', e => { curX = e.clientX; curY = e.clientY; });
-    function animateDot() {
-        dotX += (curX - dotX) * 0.12;
-        dotY += (curY - dotY) * 0.12;
-        dot.style.transform = `translate(${dotX}px, ${dotY}px)`;
-        requestAnimationFrame(animateDot);
-    }
-    animateDot();
 
-    // Hide cursor dot on touch devices
-    window.addEventListener('touchstart', () => dot.style.display = 'none', { once: true });
 }
 
 /* ── Video Hero ── */
@@ -184,5 +170,44 @@ function initFAQ() {
                 item.classList.toggle('active');
             });
         }
+    });
+}
+
+/* ── Contact Form → WhatsApp ── */
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('cf-name')?.value.trim() || '';
+        const email = document.getElementById('cf-email')?.value.trim() || '';
+        const system = document.getElementById('cf-system')?.value || '';
+        const message = document.getElementById('cf-message')?.value.trim() || '';
+
+        const systemLabel = {
+            'lime-paint': 'Lime Paint',
+            'lime-plaster': 'Lime Plaster',
+            'microcement': 'Microcement',
+            'liquid-metal': 'Liquid Metal',
+            'patina': 'Patina & Oxidised',
+            'mural': 'Custom Mural & Graphics',
+            'other': 'Other / Not Sure'
+        }[system] || 'Not specified';
+
+        const text = [
+            `Hi Plain Work! I'd like to enquire about a surface project.`,
+            ``,
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `System Interested In: ${systemLabel}`,
+            ``,
+            `Details:`,
+            message || '(No additional details provided)'
+        ].join('\n');
+
+        const url = `https://wa.me/6598004317?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
     });
 }

@@ -1,0 +1,1478 @@
+﻿<!DOCTYPE html>
+<!-- colours.html -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mineral Edit 2026 | Plain Work Colour Spotlight â€” Lime Paint Singapore & Malaysia</title>
+    <meta name="description"
+        content="Plain Work's 2026 Colour of the Year Spotlight. Four curated mineral collections â€” Luxe Femme, Morandi, Monochrome, and Solid Earth. Premium lime paint available in Singapore and Malaysia.">
+    <link rel="canonical" href="https://plainwork.sg/colours.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plainwork.sg/colours.html">
+    <meta property="og:title" content="2026 Colour Spotlight | Our Own Colour | Plain Work">
+    <meta property="og:description"
+        content="Four curated mineral collections. Premium lime paint available in Singapore and Malaysia.">
+    <meta property="og:image" content="https://plainwork.sg/assets/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        /* ============================
+           PAGE-LEVEL TOKEN OVERRIDES
+        ============================= */
+        :root {
+            --gold: #c9b48a;
+            --gold-dim: rgba(201, 180, 138, 0.15);
+            --surface-dark: #111110;
+        }
+
+        /* ============================
+           SPOTLIGHT HERO
+        ============================= */
+        .spotlight-hero {
+            min-height: 90vh;
+            background: var(--surface-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .spotlight-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 40%,
+                    rgba(201, 180, 138, 0.09) 0%,
+                    transparent 70%);
+            pointer-events: none;
+        }
+
+        .spotlight-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.75rem;
+            display: block;
+            opacity: 0.85;
+        }
+
+        .spotlight-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 400;
+            line-height: 1;
+            color: #f0ece6;
+            margin-bottom: 1rem;
+        }
+
+        .spotlight-hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .spotlight-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+            font-weight: 300;
+            color: rgba(240, 236, 230, 0.65);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .reveal-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.75rem;
+            border: 1px solid var(--gold);
+            border-radius: 100px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(201, 180, 138, 0.06);
+            backdrop-filter: blur(6px);
+        }
+
+        .reveal-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
+
+        /* Floating colour accent shapes */
+        .hero-accent {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .hero-accent-1 {
+            width: 400px;
+            height: 400px;
+            background: #F7E9E3;
+            top: -10%;
+            left: -5%;
+        }
+
+        .hero-accent-2 {
+            width: 300px;
+            height: 300px;
+            background: #A3AD9A;
+            bottom: -5%;
+            right: 5%;
+        }
+
+        .hero-accent-3 {
+            width: 250px;
+            height: 250px;
+            background: #2B3D52;
+            bottom: 10%;
+            left: 15%;
+        }
+
+        .hero-scroll-cue {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(240, 236, 230, 0.35);
+        }
+
+        .hero-scroll-cue::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(201, 180, 138, 0.5), transparent);
+            animation: scroll-line 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-line {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+
+            50% {
+                opacity: 0.3;
+                transform: scaleY(0.6);
+            }
+        }
+
+        /* ============================
+           ORIGIN STORY SECTION
+        ============================= */
+        .origin-section {
+            background: #0d0d0c;
+            padding: 7rem 0;
+            border-top: 1px solid rgba(201, 180, 138, 0.12);
+            border-bottom: 1px solid rgba(201, 180, 138, 0.12);
+        }
+
+        .origin-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .origin-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .origin-headline {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: #f0ece6;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .origin-headline em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .origin-body {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(240, 236, 230, 0.65);
+            line-height: 1.9;
+        }
+
+        .origin-divider {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 3rem auto;
+            opacity: 0.4;
+        }
+
+        .origin-facts {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3.5rem;
+        }
+
+        .origin-fact {
+            text-align: center;
+        }
+
+        .origin-fact strong {
+            display: block;
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .origin-fact span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(240, 236, 230, 0.45);
+        }
+
+        /* ============================
+           COLLECTION SECTION
+        ============================= */
+        .collection-section {
+            padding: 8rem 0;
+            background: #111110;
+        }
+
+        .collection-section.alt {
+            background: #0c0c0b;
+        }
+
+        .collection-header {
+            max-width: 1280px;
+            margin: 0 auto 4.5rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0 3rem;
+            align-items: start;
+        }
+
+        .collection-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 400;
+            color: rgba(201, 180, 138, 0.12);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            user-select: none;
+            padding-top: 0.1em;
+        }
+
+        .collection-header-right {
+            border-top: 1px solid rgba(201, 180, 138, 0.15);
+            padding-top: 1.25rem;
+        }
+
+        .collection-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+            opacity: 0.6;
+        }
+
+        .collection-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 400;
+            color: #f0ece6;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .collection-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(240, 236, 230, 0.45);
+            max-width: 520px;
+        }
+
+        .colour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /*colour card*/
+        .colour-card {
+            background: #161614;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            overflow: hidden;
+            cursor: default;
+            transition: border-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .colour-card:hover {
+            border-color: rgba(201, 180, 138, 0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .colour-swatch {
+            height: 280px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: height 0.5s ease;
+        }
+
+        .colour-card:hover .colour-swatch {
+            height: 300px;
+        }
+
+        .colour-swatch-inner {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Lime wash texture layers — applied on top of the solid base colour */
+        /* Layer 1: radial light variation (brighter centre, darker edges = depth) */
+        .colour-swatch::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 40% 35%,
+                    rgba(255, 255, 255, 0.18) 0%,
+                    rgba(255, 255, 255, 0.04) 45%,
+                    rgba(0, 0, 0, 0.12) 100%);
+            z-index: 1;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        /* Layer 2: brush direction grain (diagonal brush strokes) */
+        .colour-swatch::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='6' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E"),
+                repeating-linear-gradient(158deg,
+                    transparent 0px,
+                    transparent 3px,
+                    rgba(255, 255, 255, 0.015) 3px,
+                    rgba(255, 255, 255, 0.015) 4px);
+            background-size: 300px 300px, 100% 100%;
+            pointer-events: none;
+            z-index: 2;
+            mix-blend-mode: overlay;
+            opacity: 0.9;
+            transition: opacity 0.5s ease;
+        }
+
+        .colour-card:hover .colour-swatch::after {
+            opacity: 1.2;
+        }
+
+        .colour-info {
+            padding: 1.4rem 1.5rem 1.6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .colour-code {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(201, 180, 138, 0.5);
+            margin-bottom: 0.35rem;
+        }
+
+        .colour-name {
+            display: block;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            color: #f0ece6;
+            margin-bottom: 0.55rem;
+            line-height: 1.2;
+        }
+
+        .colour-meta {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.85rem;
+        }
+
+        .sea-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #c9b48a;
+            border-left: 1px solid rgba(201, 180, 138, 0.35);
+            padding-left: 0.6rem;
+        }
+
+        .colour-hex {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: rgba(201, 180, 138, 0.7);
+            background: rgba(201, 180, 138, 0.08);
+            padding: 0.2rem 0.55rem;
+            border-radius: 2px;
+        }
+
+        .colour-pantone {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            color: rgba(240, 236, 230, 0.35);
+        }
+
+        .colour-vibe {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.98rem;
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(240, 236, 230, 0.5);
+            line-height: 1.4;
+        }
+
+        /* ============================
+           COTY REVEAL BANNER
+        ============================= */
+        .coty-banner {
+            background: #0a0a09;
+            border-top: 1px solid rgba(201, 180, 138, 0.18);
+            border-bottom: 1px solid rgba(201, 180, 138, 0.18);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .coty-banner-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.75;
+        }
+
+        .coty-banner-headline {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            color: #f0ece6;
+            margin-bottom: 1rem;
+        }
+
+        .coty-banner-body {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(240, 236, 230, 0.5);
+            max-width: 540px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .coty-redacted {
+            display: inline-block;
+            width: 120px;
+            height: 1.3em;
+            background: var(--gold);
+            opacity: 0.18;
+            vertical-align: middle;
+            border-radius: 2px;
+            margin: 0 0.25rem;
+        }
+
+        /* ============================
+           CONTACT CTA
+        ============================= */
+        .colours-cta {
+            background: var(--surface-dark);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(201, 180, 138, 0.1);
+        }
+
+        .colours-cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: #f0ece6;
+            margin-bottom: 0.75rem;
+        }
+
+        .colours-cta p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(240, 236, 230, 0.5);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* nav override: dark page */
+        .site-header {
+            background: rgba(10, 10, 9, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body style="background:#111110;">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo">Plain Work</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links">
+                <a href="systems.html">Systems</a>
+                <a href="colours.html">Colours</a>
+                <a href="journal.html">Journal</a>
+                <a href="faq.html">FAQ</a>
+                <a href="index.html#contact" class="btn">Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================
+         SPOTLIGHT HERO
+    ============================= -->
+    <section class="spotlight-hero">
+        <!-- Ambient accent blobs -->
+        <div class="hero-accent hero-accent-1"></div>
+        <div class="hero-accent hero-accent-2"></div>
+        <div class="hero-accent hero-accent-3"></div>
+
+        <div style="position: relative; z-index: 2;">
+            <span class="spotlight-year">Plain Work · The Mineral Edit · 2026</span>
+            <h1>The<br><em>Mineral</em> Edit</h1>
+            <p class="spotlight-sub">
+                Five collections. 52 shades.<br>2026 Mineral Edit — <em style="color:#A3AD9A;">Celadonite</em>
+            </p>
+            <div class="reveal-pill"
+                style="background:rgba(163,173,154,0.15); border-color:rgba(163,173,154,0.4); cursor:pointer;"
+                onclick="window.location.href='https://wa.me/6598004317'">
+                <span class="reveal-dot" style="background:#A3AD9A;"></span>
+                Order Celadonite · WhatsApp Us
+            </div>
+        </div>
+
+        <div class="hero-scroll-cue">Scroll</div>
+    </section>
+
+    <!-- ============================
+         PRODUCT KNOWLEDGE BASE
+    ============================= -->
+    <section class="origin-section">
+        <div class="origin-inner" style="max-width:960px;">
+            <div class="origin-eyebrow">What Makes It Different</div>
+            <h2 class="origin-headline">The <em>Living Skin</em> System</h2>
+            <p class="origin-body">
+                Our mineral lime paint is not a coating. It is an eco-engineered, 100% pure mineral and botanical system
+                formulated from <strong style="color:#c9b48a;">High-Purity Mountain Minerals</strong> and
+                <strong style="color:#c9b48a;">Plant-Derived Cellulose</strong> binders â€” designed to thrive in
+                tropical humidity. It breathes with your walls, ages with grace, and actively improves the air inside
+                your home.
+            </p>
+            <div class="origin-divider"></div>
+            <div
+                style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2.5rem;text-align:left;">
+
+                <div style="border:1px solid rgba(201,180,138,0.12);border-radius:4px;padding:1.75rem;">
+                    <div style="font-size:1.5rem;margin-bottom:0.75rem;">ðŸŒ¬</div>
+                    <div
+                        style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9b48a;margin-bottom:0.5rem;">
+                        Breathable</div>
+                    <p style="font-size:0.9rem;color:rgba(240,236,230,0.7);line-height:1.7;margin:0;">Vapour-permeable.
+                        Walls release
+                        humidity naturally â€” no peeling, no bubbling, no trapped moisture.</p>
+                </div>
+
+                <div style="border:1px solid rgba(201,180,138,0.12);border-radius:4px;padding:1.75rem;">
+                    <div style="font-size:1.5rem;margin-bottom:0.75rem;">ðŸ§ª</div>
+                    <div
+                        style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9b48a;margin-bottom:0.5rem;">
+                        Antimicrobial</div>
+                    <p style="font-size:0.9rem;color:rgba(240,236,230,0.7);line-height:1.7;margin:0;">High-pH mineral
+                        alkalinity
+                        naturally resists mould and bacteria â€” no synthetic biocides required.</p>
+                </div>
+
+                <div style="border:1px solid rgba(201,180,138,0.12);border-radius:4px;padding:1.75rem;">
+                    <div style="font-size:1.5rem;margin-bottom:0.75rem;">ðŸƒ</div>
+                    <div
+                        style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9b48a;margin-bottom:0.5rem;">
+                        Carbon-Absorbing</div>
+                    <p style="font-size:0.9rem;color:rgba(240,236,230,0.7);line-height:1.7;margin:0;">As lime cures, it
+                        re-mineralises
+                        â€” absorbing COâ‚‚ from indoor air and returning to stone.</p>
+                </div>
+
+                <div style="border:1px solid rgba(201,180,138,0.12);border-radius:4px;padding:1.75rem;">
+                    <div style="font-size:1.5rem;margin-bottom:0.75rem;">âœ¦</div>
+                    <div
+                        style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9b48a;margin-bottom:0.5rem;">
+                        Zero-VOC & Ethical</div>
+                    <p style="font-size:0.9rem;color:rgba(240,236,230,0.7);line-height:1.7;margin:0;">No plastics, no
+                        resins, no animal
+                        by-products. Safe for nurseries, green-rated homes, and allergy-conscious spaces.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- =========== DISSOLVED =========== -->
+    <section class="collection-section" id="dissolved">
+        <div class="collection-header"><div class="collection-number">01</div><div class="collection-header-right"><div class="collection-tag">Mineral Spectrum</div>
+            <div class="collection-name">Dissolved</div>
+            <p class="collection-desc">Whites, creams, parchment, and sandy earth. Named Dissolved because these colours
+                carry no dominant hue — they dissolve into any room, any material, any light. The most-used tones in
+                every project we specify.</p>
+        </div>
+        <div class="colour-grid">
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F9F9F7;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 010</div>
+                    <div class="colour-name">Calce</div>
+                    <div class="colour-meta"><span class="colour-hex">#F9F9F7</span><span class="colour-pantone">11-0601
+                            TPG</span></div>
+                    <div class="colour-vibe">Pure lime white.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F7E9E3;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 001</div>
+                    <div class="colour-name">Alabaster</div>
+                    <div class="colour-meta"><span class="colour-hex">#F7E9E3</span><span class="colour-pantone">9182
+                            C</span></div>
+                    <div class="colour-vibe">Warm off-white mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F5F0E4;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 044</div>
+                    <div class="colour-name">Ivory</div>
+                    <div class="colour-meta"><span class="colour-hex">#F5F0E4</span><span class="colour-pantone">9183
+                            C</span></div>
+                    <div class="colour-vibe">Cool white with warm undertone.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F0E5C8;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 018</div>
+                    <div class="colour-name">Talc</div>
+                    <div class="colour-meta"><span class="colour-hex">#F0E5C8</span><span class="colour-pantone">9183
+                            C</span></div>
+                    <div class="colour-vibe">Softest mineral warmth.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#E5DDD0;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 031</div>
+                    <div class="colour-name">Gypsum</div>
+                    <div class="colour-meta"><span class="colour-hex">#E5DDD0</span><span class="colour-pantone">9184
+                            C</span></div>
+                    <div class="colour-vibe">Ancient white clay.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#E8E2D8;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 017</div>
+                    <div class="colour-name">Kaolin</div>
+                    <div class="colour-meta"><span class="colour-hex">#E8E2D8</span><span class="colour-pantone">9185
+                            C</span></div>
+                    <div class="colour-vibe">Refined white clay.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#E6D9C8;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 045</div>
+                    <div class="colour-name">Linen</div>
+                    <div class="colour-meta"><span class="colour-hex">#E6D9C8</span><span class="colour-pantone">9184
+                            C</span></div>
+                    <div class="colour-vibe">Woven fabric warmth.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#D8C9B5;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 032</div>
+                    <div class="colour-name">Perlite</div>
+                    <div class="colour-meta"><span class="colour-hex">#D8C9B5</span><span class="colour-pantone">4520
+                            C</span></div>
+                    <div class="colour-vibe">Volcanic beige glass.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C4BAA6;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 022</div>
+                    <div class="colour-name">Dolomite</div>
+                    <div class="colour-meta"><span class="colour-hex">#C4BAA6</span><span class="colour-pantone">4525
+                            C</span></div>
+                    <div class="colour-vibe">Pale mountain limestone.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#B5A898;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 023</div>
+                    <div class="colour-name">Muscovite</div>
+                    <div class="colour-meta"><span class="colour-hex">#B5A898</span><span class="colour-pantone">4515
+                            C</span></div>
+                    <div class="colour-vibe">Silver mica warmth.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C7B4A1;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 008</div>
+                    <div class="colour-name">Argile</div>
+                    <div class="colour-meta"><span class="colour-hex">#C7B4A1</span><span class="colour-pantone">4255
+                            C</span></div>
+                    <div class="colour-vibe">Dusty clay mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C9B090;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 046</div>
+                    <div class="colour-name">Sandstone</div>
+                    <div class="colour-meta"><span class="colour-hex">#C9B090</span><span class="colour-pantone">7527
+                            C</span></div>
+                    <div class="colour-vibe">Classic sandy sedimentary tone.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C4A882;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 033</div>
+                    <div class="colour-name">Felsite</div>
+                    <div class="colour-meta"><span class="colour-hex">#C4A882</span><span class="colour-pantone">4530
+                            C</span></div>
+                    <div class="colour-vibe">Light sandy brown granite.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#BFA680;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 009</div>
+                    <div class="colour-name">Travertine</div>
+                    <div class="colour-meta"><span class="colour-hex">#BFA680</span><span class="colour-pantone">4249
+                            C</span></div>
+                    <div class="colour-vibe">Aged limestone warmth.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#A89480;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 047</div>
+                    <div class="colour-name">Silex</div>
+                    <div class="colour-meta"><span class="colour-hex">#A89480</span><span class="colour-pantone">4515
+                            C</span></div>
+                    <div class="colour-vibe">Flint grey-brown mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C4B9A8;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 048</div>
+                    <div class="colour-name">Mudite</div>
+                    <div class="colour-meta"><span class="colour-hex">#C4B9A8</span><span class="colour-pantone">7535
+                            C</span></div>
+                    <div class="colour-vibe">Warm mushroom greige.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F2DDD0;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 049</div>
+                    <div class="colour-name">Halite</div>
+                    <div class="colour-meta"><span class="colour-hex">#F2DDD0</span><span class="colour-pantone">7520
+                            C</span></div>
+                    <div class="colour-vibe">Soft mineral peach.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========== COMPRESSED =========== -->
+    <section class="collection-section alt" id="compressed">
+        <div class="collection-header"><div class="collection-number">02</div><div class="collection-header-right"><div class="collection-tag">Mineral Spectrum</div>
+            <div class="collection-name">Compressed</div>
+            <p class="collection-desc">Fossil silica to volcanic void. Named Compressed because these greys carry the
+                density of geological pressure — no warm, no cool, just pure mineral weight. The most architectural
+                tones in the Plain Work system.</p>
+        </div>
+        <div class="colour-grid">
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#DDD8CC;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 024</div>
+                    <div class="colour-name">Calcite</div>
+                    <div class="colour-meta"><span class="colour-hex">#DDD8CC</span><span class="colour-pantone">9181
+                            C</span></div>
+                    <div class="colour-vibe">Cool white crystal.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#D0CCC7;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 040</div>
+                    <div class="colour-name">Diatomite</div>
+                    <div class="colour-meta"><span class="colour-hex">#D0CCC7</span><span class="colour-pantone">9180
+                            C</span></div>
+                    <div class="colour-vibe">Pale fossil silica.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C2BCBA;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 041</div>
+                    <div class="colour-name">Pumice</div>
+                    <div class="colour-meta"><span class="colour-hex">#C2BCBA</span><span class="colour-pantone">9179
+                            C</span></div>
+                    <div class="colour-vibe">Volcanic grey glass.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#B4AFB5;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 007</div>
+                    <div class="colour-name">Selenite</div>
+                    <div class="colour-meta"><span class="colour-hex">#B4AFB5</span><span class="colour-pantone">4241
+                            C</span></div>
+                    <div class="colour-vibe">Silver gypsum crystal.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#9A9896;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 042</div>
+                    <div class="colour-name">Marl</div>
+                    <div class="colour-meta"><span class="colour-hex">#9A9896</span><span class="colour-pantone">Cool
+                            Gray 5</span></div>
+                    <div class="colour-vibe">Warm mid-grey limestone.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#8A8C8A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 025</div>
+                    <div class="colour-name">Schist</div>
+                    <div class="colour-meta"><span class="colour-hex">#8A8C8A</span><span class="colour-pantone">423
+                            C</span></div>
+                    <div class="colour-vibe">Dense metamorphic grey.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#8E908F;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 011</div>
+                    <div class="colour-name">Ardoise</div>
+                    <div class="colour-meta"><span class="colour-hex">#8E908F</span><span class="colour-pantone">422
+                            C</span></div>
+                    <div class="colour-vibe">Refined slate grey.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#686869;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 043</div>
+                    <div class="colour-name">Galena</div>
+                    <div class="colour-meta"><span class="colour-hex">#686869</span><span class="colour-pantone">424
+                            C</span></div>
+                    <div class="colour-vibe">Lead mineral dark grey.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#5A5A5A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 026</div>
+                    <div class="colour-name">Basalt</div>
+                    <div class="colour-meta"><span class="colour-hex">#5A5A5A</span><span class="colour-pantone">425
+                            C</span></div>
+                    <div class="colour-vibe">Volcanic stone mid-tone.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#1A1A1B;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 013</div>
+                    <div class="colour-name">Obsidienne</div>
+                    <div class="colour-meta"><span class="colour-hex">#1A1A1B</span><span class="colour-pantone">Black 6
+                            C</span></div>
+                    <div class="colour-vibe">Light-absorbing void.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========== FLUSHED =========== -->
+    <section class="collection-section" id="flushed">
+        <div class="collection-header"><div class="collection-number">03</div><div class="collection-header-right"><div class="collection-tag">Mineral Spectrum</div>
+            <div class="collection-name">Flushed</div>
+            <p class="collection-desc">Blush, dusty rose, and warm iron oxides. Named Flushed because these tones carry
+                just enough pink-red mineral pigment to feel human and warm on a wall — the way skin reads against
+                stone.</p>
+        </div>
+        <div class="colour-grid">
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F2D5D0;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 002</div>
+                    <div class="colour-name">Aragonite</div>
+                    <div class="colour-meta"><span class="colour-hex">#F2D5D0</span><span class="colour-pantone">4021
+                            C</span></div>
+                    <div class="colour-vibe">Airy soft pink.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#D9A69F;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 003</div>
+                    <div class="colour-name">Rhodonite</div>
+                    <div class="colour-meta"><span class="colour-hex">#D9A69F</span><span class="colour-pantone">4023
+                            C</span></div>
+                    <div class="colour-vibe">Dusty rose mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C49A8C;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 019</div>
+                    <div class="colour-name">Umber</div>
+                    <div class="colour-meta"><span class="colour-hex">#C49A8C</span><span class="colour-pantone">4026
+                            C</span></div>
+                    <div class="colour-vibe">Raw pigment earth.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C2928C;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 004</div>
+                    <div class="colour-name">Feldspar</div>
+                    <div class="colour-meta"><span class="colour-hex">#C2928C</span><span class="colour-pantone">4024
+                            C</span></div>
+                    <div class="colour-vibe">Textured rose crystal.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#A6756D;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 005</div>
+                    <div class="colour-name">Sanguine</div>
+                    <div class="colour-meta"><span class="colour-hex">#A6756D</span><span class="colour-pantone">4025
+                            C</span></div>
+                    <div class="colour-vibe">Deep iron-red chalk.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========== ROOTED =========== -->
+    <section class="collection-section alt" id="rooted">
+        <div class="collection-header"><div class="collection-number">04</div><div class="collection-header-right"><div class="collection-tag">Mineral Spectrum</div>
+            <div class="collection-name">Rooted</div>
+            <p class="collection-desc">Sage, olive, and deep forest mineral. Named Rooted because these greens derive
+                from silicate earth pigments — celadonite, glauconite, olivine — the same minerals that colour volcanic
+                stone and tropical canopy.</p>
+        </div>
+        <div class="colour-grid">
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#A3AD9A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 006</div>
+                    <div class="colour-name">Celadonite</div>
+                    <div class="colour-meta"><span class="colour-hex">#A3AD9A</span><span class="colour-pantone">4209
+                            C</span></div>
+                    <div class="colour-vibe">Quiet architectural green.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#ACB89A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 020</div>
+                    <div class="colour-name">Glauconite</div>
+                    <div class="colour-meta"><span class="colour-hex">#ACB89A</span><span class="colour-pantone">5783
+                            C</span></div>
+                    <div class="colour-vibe">Coastal green mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#8F9672;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 021</div>
+                    <div class="colour-name">Olivine</div>
+                    <div class="colour-meta"><span class="colour-hex">#8F9672</span><span class="colour-pantone">5773
+                            C</span></div>
+                    <div class="colour-vibe">Volcanic olive stone.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#6B7A4E;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 034</div>
+                    <div class="colour-name">Olivenite</div>
+                    <div class="colour-meta"><span class="colour-hex">#6B7A4E</span><span class="colour-pantone">5763
+                            C</span></div>
+                    <div class="colour-vibe">Deep copper arsenate olive.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#B5C9B8;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 050</div>
+                    <div class="colour-name">Prehnite</div>
+                    <div class="colour-meta"><span class="colour-hex">#B5C9B8</span><span class="colour-pantone">559
+                            C</span></div>
+                    <div class="colour-vibe">Dusty eucalyptus mint.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========== RAW =========== -->
+    <section class="collection-section" id="raw">
+        <div class="collection-header"><div class="collection-number">05</div><div class="collection-header-right"><div class="collection-tag">Mineral Spectrum</div>
+            <div class="collection-name">Raw</div>
+            <p class="collection-desc">Baby yellow to deep navy, terracotta to dark violet. Named Raw because each tone
+                is derived from a single, uncompromised mineral pigment — azurite, cinnabar, lapis, charoite. One hero
+                wall. Let the rest breathe.</p>
+        </div>
+        <div class="colour-grid">
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#F5EFA0;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 039</div>
+                    <div class="colour-name">Citrine</div>
+                    <div class="colour-meta"><span class="colour-hex">#F5EFA0</span><span class="colour-pantone">100
+                            C</span></div>
+                    <div class="colour-vibe">Baby mineral yellow.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#B8D4E8;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 038</div>
+                    <div class="colour-name">Celestite</div>
+                    <div class="colour-meta"><span class="colour-hex">#B8D4E8</span><span class="colour-pantone">278
+                            C</span></div>
+                    <div class="colour-vibe">Pale sky strontium mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#7B8FA1;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 027</div>
+                    <div class="colour-name">Azurite</div>
+                    <div class="colour-meta"><span class="colour-hex">#7B8FA1</span><span class="colour-pantone">5425
+                            C</span></div>
+                    <div class="colour-vibe">Storm blue copper mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#6B7F88;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 028</div>
+                    <div class="colour-name">Labradorite</div>
+                    <div class="colour-meta"><span class="colour-hex">#6B7F88</span><span class="colour-pantone">5477
+                            C</span></div>
+                    <div class="colour-vibe">Iridescent grey-blue feldspar.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#2B3D52;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 014</div>
+                    <div class="colour-name">Lapis</div>
+                    <div class="colour-meta"><span class="colour-hex">#2B3D52</span><span class="colour-pantone">534
+                            C</span></div>
+                    <div class="colour-vibe">Luxury hospitality blue.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#1B2A4A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 036</div>
+                    <div class="colour-name">Sodalite</div>
+                    <div class="colour-meta"><span class="colour-hex">#1B2A4A</span><span class="colour-pantone">539
+                            C</span></div>
+                    <div class="colour-vibe">Deep navy blue mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#4E7A7A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 015</div>
+                    <div class="colour-name">Malachite</div>
+                    <div class="colour-meta"><span class="colour-hex">#4E7A7A</span><span class="colour-pantone">5483
+                            C</span></div>
+                    <div class="colour-vibe">Vibrant patina teal.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#4A3560;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 037</div>
+                    <div class="colour-name">Charoite</div>
+                    <div class="colour-meta"><span class="colour-hex">#4A3560</span><span class="colour-pantone">2627
+                            C</span></div>
+                    <div class="colour-vibe">Dark violet silicate mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C4622D;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 035</div>
+                    <div class="colour-name">Realgar</div>
+                    <div class="colour-meta"><span class="colour-hex">#C4622D</span><span class="colour-pantone">1525
+                            C</span></div>
+                    <div class="colour-vibe">Orange-red arsenic mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#C1654E;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 029</div>
+                    <div class="colour-name">Cinnabar</div>
+                    <div class="colour-meta"><span class="colour-hex">#C1654E</span><span class="colour-pantone">7528
+                            C</span></div>
+                    <div class="colour-vibe">Deep vermillion mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#8B3E2F;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 016</div>
+                    <div class="colour-name">Hematite</div>
+                    <div class="colour-meta"><span class="colour-hex">#8B3E2F</span><span class="colour-pantone">7610
+                            C</span></div>
+                    <div class="colour-vibe">Tropical iron-red earth.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#8B2635;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 030</div>
+                    <div class="colour-name">Pyrope</div>
+                    <div class="colour-meta"><span class="colour-hex">#8B2635</span><span class="colour-pantone">7609
+                            C</span></div>
+                    <div class="colour-vibe">Dark garnet red.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#A44B4D;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 012</div>
+                    <div class="colour-name">Anthracite</div>
+                    <div class="colour-meta"><span class="colour-hex">#A44B4D</span><span class="colour-pantone">7525
+                            C</span></div>
+                    <div class="colour-vibe">Dark mineral oxide.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#6B4A3A;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 051</div>
+                    <div class="colour-name">Goethite</div>
+                    <div class="colour-meta"><span class="colour-hex">#6B4A3A</span><span class="colour-pantone">7519
+                            C</span></div>
+                    <div class="colour-vibe">Rich tobacco iron mineral.</div>
+                </div>
+            </div>
+            <div class="colour-card">
+                <div class="colour-swatch">
+                    <div class="colour-swatch-inner" style="background-color:#5C2434;"></div>
+                </div>
+                <div class="colour-info">
+                    <div class="colour-code">PW &middot; 052</div>
+                    <div class="colour-name">Almandine</div>
+                    <div class="colour-meta"><span class="colour-hex">#5C2434</span><span class="colour-pantone">505
+                            C</span></div>
+                    <div class="colour-vibe">Deep burgundy garnet.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         COTY REVEAL BANNER
+    ============================= -->
+    <section class="coty-banner"
+        style="background: linear-gradient(135deg, rgba(163,173,154,0.12), rgba(20,20,17,0.95)); border-top: 1px solid rgba(163,173,154,0.15); border-bottom: 1px solid rgba(163,173,154,0.15);">
+        <div class="coty-banner-tag">2026 — The Mineral Edit</div>
+        <h2 class="coty-banner-headline">Celadonite <span style="color:#A3AD9A;">PW · 006</span></h2>
+        <div
+            style="width:140px;height:140px;background-color:#A3AD9A;border-radius:50%;margin:2rem auto;box-shadow:0 0 80px rgba(163,173,154,0.25);">
+        </div>
+        <p class="coty-banner-body">
+            The 2026 Mineral Edit is <strong style="color:#c9b48a;">Celadonite</strong> — a quiet, architectural sage
+            green
+            derived from celadonite, a volcanic green earth mineral used by classical painters for centuries.
+            Sage green is the most-searched interior colour family globally in 2026. On lime-textured walls,
+            it does what no flat paint can — it shifts with tropical daylight, deepens at dusk, and softens
+            every surface it touches.
+        </p>
+        <a href="https://wa.me/6598004317" class="btn" target="_blank"
+            style="background: #A3AD9A; color: #111110; border: none;">
+            Order Celadonite — WhatsApp Us
+        </a>
+    </section>
+
+    <!-- ============================
+         FINAL CTA
+    ============================= -->
+    <section class="colours-cta">
+        <h2>Want a sample on your wall?</h2>
+        <p>All shades are available as physical lime paint samples. Assess the colour in your own light, at your scale,
+            before committing.</p>
+        <a href="index.html#contact" class="btn"
+            style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">
+            Book a Colour Consultation
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column branding">
+                <a href="index.html" class="footer-logo">Plain Work</a>
+                <p>Designing and executing architectural surface systems in Singapore. Specified for the environment.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Systems</h4>
+                <ul class="footer-links">
+                    <li><a href="lime-paint.html">Lime Paint Singapore</a></li>                    <li><a href="lime-plaster.html">Lime Plaster Singapore</a></li>
+                    <li><a href="liquid-metal.html">Liquid Metal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Mineral Edit</h4>
+                <ul class="footer-links">
+                    <li><a href="colours.html#sienna">Sienna</a></li>
+                    <li><a href="colours.html#silicate">Silicate</a></li>
+                    <li><a href="colours.html#carbon">Carbon</a></li>
+                    <li><a href="colours.html#oxide">Oxide</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://wa.me/6598004317" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Plain Work. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6598004317" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.5 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+    </a>
+
+    <script src="js/app.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
