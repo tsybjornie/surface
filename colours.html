@@ -1468,8 +1468,435 @@
         </svg>
     </a>
 
+    <!-- Colour Detail Modal -->
+    <div id="colour-modal" class="colour-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="colour-modal-backdrop"></div>
+        <div class="colour-modal-panel">
+            <button class="colour-modal-close" aria-label="Close">&times;</button>
+            
+            <div class="colour-modal-images">
+                <div class="colour-modal-texture" id="modal-texture">
+                    <span class="colour-modal-img-label">Texture Close-Up</span>
+                </div>
+                <div class="colour-modal-room" id="modal-room">
+                    <span class="colour-modal-img-label">Room Visualisation</span>
+                </div>
+            </div>
+            
+            <div class="colour-modal-info">
+                <div class="colour-modal-collection" id="modal-collection"></div>
+                <div class="colour-modal-code" id="modal-code"></div>
+                <h2 class="colour-modal-name" id="modal-name"></h2>
+                <div class="colour-modal-hex" id="modal-hex"></div>
+                <p class="colour-modal-desc" id="modal-desc"></p>
+                
+                <div class="colour-modal-divider"></div>
+                
+                <h3 class="colour-modal-section-title">How To Apply</h3>
+                <div class="colour-modal-specs">
+                    <div class="colour-modal-spec">
+                        <span class="spec-label">Format</span>
+                        <span class="spec-value">Dry powder — add water 1:1</span>
+                    </div>
+                    <div class="colour-modal-spec">
+                        <span class="spec-label">Stroke</span>
+                        <span class="spec-value">Cross-hatch recommended</span>
+                    </div>
+                    <div class="colour-modal-spec">
+                        <span class="spec-label">Coats</span>
+                        <span class="spec-value">2 minimum</span>
+                    </div>
+                    <div class="colour-modal-spec">
+                        <span class="spec-label">Coverage</span>
+                        <span class="spec-value">~6 m² per kg (2 coats)</span>
+                    </div>
+                    <div class="colour-modal-spec">
+                        <span class="spec-label">Sizes</span>
+                        <span class="spec-value">500g &amp; 1kg bags</span>
+                    </div>
+                    <div class="colour-modal-spec">
+                        <span class="spec-label">Shelf Life</span>
+                        <span class="spec-value">Indefinite if kept dry</span>
+                    </div>
+                </div>
+                
+                <div class="colour-modal-divider"></div>
+                
+                <div class="colour-modal-badges">
+                    <span class="colour-modal-badge">Zero VOC</span>
+                    <span class="colour-modal-badge">Halal</span>
+                    <span class="colour-modal-badge">Made in Malaysia</span>
+                </div>
+                
+                <a href="https://wa.me/6598004317" target="_blank" class="colour-modal-cta">
+                    Order This Colour — WhatsApp
+                </a>
+                
+                <p class="colour-modal-disclaimer">*Colours on screen may not reflect the exact shade. Request a physical sample for accurate colour matching.</p>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        /* ============================
+           COLOUR DETAIL MODAL
+        ============================= */
+        .colour-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .colour-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .colour-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+        }
+        .colour-modal-panel {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 90vw;
+            max-width: 1100px;
+            max-height: 90vh;
+            background: #141413;
+            border: 1px solid rgba(201,180,138,0.12);
+            border-radius: 3px;
+            overflow: hidden;
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .colour-modal.active .colour-modal-panel {
+            transform: translateY(0);
+        }
+        .colour-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #f5f0e4;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .colour-modal-close:hover {
+            background: rgba(201,180,138,0.3);
+        }
+        
+        /* Images Column */
+        .colour-modal-images {
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+        }
+        .colour-modal-texture,
+        .colour-modal-room {
+            flex: 1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .colour-modal-texture {
+            border-bottom: 1px solid rgba(201,180,138,0.12);
+        }
+        .colour-modal-img-label {
+            position: absolute;
+            bottom: 0.8rem;
+            left: 0.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            background: rgba(0,0,0,0.5);
+            padding: 0.3rem 0.6rem;
+            border-radius: 2px;
+        }
+        
+        /* Info Column */
+        .colour-modal-info {
+            padding: 2.5rem;
+            overflow-y: auto;
+            max-height: 90vh;
+            color: #f5f0e4;
+        }
+        .colour-modal-collection {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .colour-modal-code {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: rgba(245,240,228,0.5);
+            margin-bottom: 0.5rem;
+        }
+        .colour-modal-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #f5f0e4;
+            margin-bottom: 0.75rem;
+            line-height: 1.1;
+        }
+        .colour-modal-hex {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            background: rgba(201,180,138,0.1);
+            padding: 0.25rem 0.6rem;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+        }
+        .colour-modal-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: rgba(245,240,228,0.75);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .colour-modal-divider {
+            height: 1px;
+            background: rgba(201,180,138,0.12);
+            margin: 1.5rem 0;
+        }
+        .colour-modal-section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        .colour-modal-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .colour-modal-spec {
+            border-left: 1px solid rgba(201,180,138,0.2);
+            padding-left: 0.8rem;
+        }
+        .spec-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(201,180,138,0.6);
+            margin-bottom: 0.2rem;
+        }
+        .spec-value {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #f5f0e4;
+        }
+        .colour-modal-badges {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .colour-modal-badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid rgba(245,240,228,0.2);
+            padding: 0.35rem 0.7rem;
+            border-radius: 2px;
+            color: rgba(245,240,228,0.6);
+        }
+        .colour-modal-cta {
+            display: block;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #141413;
+            background: var(--gold);
+            padding: 0.9rem 1.5rem;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+            transition: background 0.2s;
+        }
+        .colour-modal-cta:hover {
+            background: #d4c39b;
+        }
+        .colour-modal-disclaimer {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            color: rgba(245,240,228,0.35);
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        /* Make colour cards clickable */
+        .colour-card {
+            cursor: pointer;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .colour-modal-panel {
+                grid-template-columns: 1fr;
+                max-height: 95vh;
+                width: 95vw;
+            }
+            .colour-modal-images {
+                height: 300px;
+                flex-direction: row;
+            }
+            .colour-modal-texture,
+            .colour-modal-room {
+                flex: 1;
+            }
+            .colour-modal-texture {
+                border-bottom: none;
+                border-right: 1px solid rgba(201,180,138,0.12);
+            }
+            .colour-modal-info {
+                padding: 1.5rem;
+                max-height: calc(95vh - 300px);
+            }
+            .colour-modal-name {
+                font-size: 1.8rem;
+            }
+            .colour-modal-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
     <script src="js/app.js"></script>
     <script>lucide.createIcons();</script>
+    
+    <script>
+    (function() {
+        // Collection mapping based on section IDs
+        const sectionMap = {};
+        document.querySelectorAll('.collection-section').forEach(section => {
+            const id = section.id || '';
+            const nameEl = section.querySelector('.collection-name');
+            const collectionName = nameEl ? nameEl.textContent.trim() : id;
+            section.querySelectorAll('.colour-card').forEach(card => {
+                sectionMap.set ? null : null;
+                card.dataset.collection = collectionName;
+            });
+        });
+        
+        // Extended descriptions based on colour vibes
+        function getExtendedDesc(name, vibe, hex) {
+            // If vibe is very short, expand it poetically
+            const descs = {
+                'Calce': 'The most honest shade in the palette — raw calcium hydroxide with zero pigment added. Pure lime white that shifts between cool and warm depending on the light. The starting point for every mineral wall.',
+                'Alabaster': 'A warm off-white with the faintest blush of mineral warmth. Named after the translucent stone prized by ancient sculptors. Perfect for spaces that need light without clinical coldness.',
+                'Ivory': 'Cool white carrying a warm undertone — the colour of aged parchment and sunlit linen. Pairs beautifully with natural wood and brass.',
+                'Talc': 'The softest mineral warmth, like powdered talcum stone. Barely there, yet it fills any room with quiet comfort. Works everywhere.',
+                'Gypsum': 'Named after ancient white clay, this shade carries the patina of old European plaster walls. Warm but never yellow. Timeless.',
+                'Kaolin': 'Refined white clay — the purest form of earth white. Slightly cooler than Gypsum, with a porcelain-like quiet elegance.',
+                'Linen': 'The colour of woven fabric warmth. Not white, not beige — somewhere between, like well-worn Belgian linen draped over stone.',
+            };
+            return descs[name] || vibe + '. A mineral shade from the PW palette, hand-mixed from pure Malaysian lime and earth pigments. Each application is unique — the colour deepens and shifts with natural light, brush direction, and the number of coats applied.';
+        }
+        
+        const modal = document.getElementById('colour-modal');
+        const backdrop = modal.querySelector('.colour-modal-backdrop');
+        const closeBtn = modal.querySelector('.colour-modal-close');
+        const textureEl = document.getElementById('modal-texture');
+        const roomEl = document.getElementById('modal-room');
+        const nameEl = document.getElementById('modal-name');
+        const codeEl = document.getElementById('modal-code');
+        const hexEl = document.getElementById('modal-hex');
+        const descEl = document.getElementById('modal-desc');
+        const collectionEl = document.getElementById('modal-collection');
+        
+        // Open modal on colour card click
+        document.querySelectorAll('.colour-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const swatchInner = card.querySelector('.colour-swatch-inner');
+                const bg = swatchInner.style.backgroundColor;
+                const hex = card.querySelector('.colour-hex') ? card.querySelector('.colour-hex').textContent.trim() : '';
+                const name = card.querySelector('.colour-name') ? card.querySelector('.colour-name').textContent.trim() : '';
+                const code = card.querySelector('.colour-code') ? card.querySelector('.colour-code').textContent.trim() : '';
+                const vibe = card.querySelector('.colour-vibe') ? card.querySelector('.colour-vibe').textContent.trim() : '';
+                const collection = card.dataset.collection || '';
+                
+                // Set colour on texture preview (blend with grayscale texture)
+                textureEl.style.backgroundImage = 'url(images/texture-base.png)';
+                textureEl.style.backgroundColor = hex || bg;
+                textureEl.style.backgroundBlendMode = 'multiply';
+                
+                // Set colour on room preview (blend with room photo)
+                roomEl.style.backgroundImage = 'url(images/room-base.png)';
+                roomEl.style.backgroundColor = hex || bg;
+                roomEl.style.backgroundBlendMode = 'multiply';
+                
+                // Populate info
+                nameEl.textContent = name;
+                codeEl.textContent = code;
+                hexEl.textContent = hex;
+                collectionEl.textContent = collection ? 'Collection · ' + collection : '';
+                descEl.textContent = getExtendedDesc(name, vibe, hex);
+                
+                // Update CTA link with colour name
+                const ctaLink = modal.querySelector('.colour-modal-cta');
+                if (ctaLink) {
+                    ctaLink.href = 'https://wa.me/6598004317?text=' + encodeURIComponent('Hi, I\'m interested in PW Lime Paint — ' + name + ' (' + code + ')');
+                }
+                
+                // Show modal
+                modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    })();
+    </script>
 </body>
 
 </html>
