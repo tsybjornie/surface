@@ -1,0 +1,12 @@
+[
+  {
+    "id": "xhs_12345",
+    "description": "Just finished my new BTO renovation! Look at this clean, minimalist living room with bright white painted walls. Simple and beautiful.",
+    "image_url": "https://example.com/xhs_12345.jpg"
+  },
+  {
+    "id": "xhs_67890",
+    "description": "My wabi-sabi inspired bedroom is finally done. We used standard emulsion paint to save costs but it looks decent.",
+    "image_url": "https://example.com/xhs_67890.jpg"
+  }
+]
