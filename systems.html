@@ -6,16 +6,477 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Systems | Plain Work — Architectural Finishes Singapore</title>
     <meta name="description"
-        content="Lime paint and lime plaster — mineral finishes specified and applied by Plain Work in Singapore. Breathable, zero-VOC, naturally antimicrobial.">
+        content="Three specialist finishing systems — Shikkui Stone lime plaster, no-hacking microcement, and cold-spray liquid metal. Architectural finishes applied in Singapore.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* ── EDITORIAL PLATES ── */
+        .systems-intro {
+            padding: calc(var(--spacing-xl) + 80px) 0 var(--spacing-lg);
+            background: var(--color-bg-primary);
+            text-align: center;
+        }
+
+        .systems-intro-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .systems-intro h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7vw, 7rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--color-text-primary);
+            line-height: 1.0;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .systems-intro p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.45);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* ── PLATE ── */
+        .editorial-plate {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            background: #0a0907;
+        }
+
+        .editorial-plate img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%) contrast(1.08) brightness(0.72);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .editorial-plate:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Gradient overlay — bottom */
+        .editorial-plate::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.88) 0%,
+                rgba(0,0,0,0.42) 38%,
+                transparent 65%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .plate-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 clamp(2rem, 5vw, 5rem) clamp(3rem, 5vh, 4.5rem);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .plate-left {
+            flex: 1;
+        }
+
+        .plate-number {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.62rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 1.1rem;
+        }
+
+        .plate-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.05;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.8rem;
+        }
+
+        .plate-material {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .plate-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .plate-price {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3.8rem);
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 0.02em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .plate-price-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .plate-benefit {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+            font-style: italic;
+            max-width: 220px;
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        /* Divider line between plates */
+        .plate-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.06);
+        }
+
+        /* ── CTA BAND ── */
+        .systems-cta {
+            background: var(--color-bg-primary);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .systems-cta-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.62rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 1.5rem;
+        }
+
+        .systems-cta h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--color-text-primary);
+            margin-bottom: 2rem;
+        }
+
+        /* ── NOTE BAND ── */
+        .systems-note {
+            background: #0a0907;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+        }
+
+        .systems-note p {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.05em;
+            font-weight: 300;
+        }
+
+        /* ── PITCH SECTION ── */
+        .pitch-section {
+            background: #0a0907;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .pitch-inner {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: clamp(3rem, 6vw, 7rem);
+            align-items: start;
+        }
+
+        .pitch-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            font-weight: 300;
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            letter-spacing: 0.03em;
+            position: sticky;
+            top: 7rem;
+        }
+
+        .pitch-headline em {
+            font-style: italic;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .pitch-columns {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .pitch-col {
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .pitch-col:last-child {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .pitch-col-number {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+        }
+
+        .pitch-col-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            margin-bottom: 0.9rem;
+        }
+
+        .pitch-col p {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 480px;
+        }
+
+        /* ── LEVEL 5 SECTION ── */
+        .level5-section {
+            background: #e8e4da;
+            padding: clamp(4rem, 8vw, 7rem) 0;
+        }
+
+        .level5-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(3rem, 5vw, 6rem);
+            align-items: start;
+        }
+
+        .level5-left .level5-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(30,28,24,0.45);
+            margin-bottom: 1.2rem;
+        }
+
+        .level5-left h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 300;
+            font-style: italic;
+            color: #1e1c18;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+
+        .level5-left .level5-sub {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: rgba(30,28,24,0.45);
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 440px;
+            margin-bottom: 2rem;
+        }
+
+        .level5-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .level5-feat {
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(30,28,24,0.12);
+        }
+
+        .level5-feat:last-child {
+            border-bottom: 1px solid rgba(30,28,24,0.12);
+        }
+
+        .level5-feat h4 {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #1e1c18;
+            margin-bottom: 0.5rem;
+        }
+
+        .level5-feat p {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: rgba(30,28,24,0.45);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Pricing table */
+        .level5-right {
+            padding-top: 1rem;
+        }
+
+        .level5-right .level5-table-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(30,28,24,0.45);
+            margin-bottom: 1.5rem;
+        }
+
+        .level5-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .level5-table th {
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(30,28,24,0.45);
+            font-weight: 400;
+            text-align: left;
+            padding: 0 0 1rem 0;
+            border-bottom: 1px solid rgba(30,28,24,0.25);
+        }
+
+        .level5-table td {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: #1e1c18;
+            font-weight: 300;
+            padding: 1.2rem 1rem 1.2rem 0;
+            border-bottom: 1px solid rgba(30,28,24,0.12);
+            vertical-align: top;
+        }
+
+        .level5-table td:last-child {
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .level5-table .td-desc {
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(30,28,24,0.45);
+            margin-top: 0.25rem;
+        }
+
+        .level5-note {
+            margin-top: 2rem;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            color: rgba(30,28,24,0.45);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .editorial-plate {
+                min-height: 75vh;
+                align-items: flex-end;
+            }
+
+            .plate-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .plate-right {
+                text-align: left;
+            }
+
+            .plate-benefit {
+                text-align: left;
+            }
+
+            .pitch-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .pitch-headline {
+                position: static;
+            }
+
+            .level5-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body style="background: var(--color-bg-primary);">
 
     <!-- Navigation -->
     <header class="site-header">
@@ -31,120 +492,211 @@
         </div>
     </header>
 
-    <!-- Page Hero — pure black, editorial -->
-    <section class="page-hero">
-        <div class="page-hero-content">
-            <span class="page-hero-label">Architectural Finishes</span>
-            <h1><em>What We Do</em></h1>
-            <p>Every finish is specified to the substrate, environment, and intended use.<br>
-                We do not apply materials that are wrong for the conditions.</p>
+    <!-- Intro -->
+    <section class="systems-intro">
+        <span class="systems-intro-label">Services &amp; Pricing</span>
+        <h1>What We Apply</h1>
+        <p>Three specialist finishing systems. Each specified to the substrate,
+            environment, and the result you need.</p>
+    </section>
+
+    <!-- ── PITCH SECTION ── -->
+    <section class="pitch-section">
+        <div class="pitch-inner container">
+            <div class="pitch-headline-wrap">
+                <h2 class="pitch-headline">Plastic Paint is<br><em>Suffocating Your Home.</em></h2>
+            </div>
+            <div class="pitch-columns">
+                <div class="pitch-col">
+                    <span class="pitch-col-number">01</span>
+                    <h3 class="pitch-col-title">Breathable</h3>
+                    <p>Unlike acrylic (plastic) paint, our minerals allow humidity to pass through the wall. No bubbling, no peeling — ever.</p>
+                </div>
+                <div class="pitch-col">
+                    <span class="pitch-col-number">02</span>
+                    <h3 class="pitch-col-title">Antiseptic</h3>
+                    <p>Natural pH 12+ alkalinity kills 99.9% of mold and bacteria on contact. No chemical additives needed.</p>
+                </div>
+                <div class="pitch-col">
+                    <span class="pitch-col-number">03</span>
+                    <h3 class="pitch-col-title">Petrification</h3>
+                    <p>Our Shikkui stone absorbs CO₂ from the air and chemically hardens over 100 years. It does not degrade — it improves.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Systems Grid -->
-    <section class="section-padding" style="background: var(--color-bg-warm);">
-        <div class="container">
+    <!-- ── LEVEL 5 RESURFACING ── -->
+    <section class="level5-section" id="level5">
+        <div class="level5-inner container">
+            <div class="level5-left">
+                <span class="level5-label">Substrate Requirement</span>
+                <h2>The Foundation of Permanence:<br>Level 5 Resurfacing.</h2>
+                <p class="level5-sub">We don&rsquo;t just paint over your past. We reset your walls to a mineral state. Most failures in lime and mineral finishes occur because they are applied over old, suffocating acrylic paint.</p>
 
-            <!-- Primary Systems -->
-            <div class="systems-category-label">Mineral &amp; Lime</div>
-            <div class="services-grid large-grid" style="margin-bottom: 0;">
-
-                <div class="service-card dark photo-card" onclick="window.location.href='lime-paint.html'"
-                    style="cursor:pointer;">
-                    <div class="card-photo"><img src="images/lime-paint-hero.png" alt="Lime paint wall texture"></div>
-                    <div class="card-body">
-                        <h3>Lime Paint</h3>
-                        <p>Breathable mineral paint that allows walls to release moisture rather than trap it.</p>
-                        <ul class="check-list">
-                            <li>Best for: living spaces, feature walls</li>
-                            <li>Not suitable for: wet areas, heavy abrasion</li>
-                        </ul>
-                        <span class="note">Specified only after surface assessment.</span>
-                        <a href="lime-paint.html" class="link-arrow">Lime Paint Singapore &rarr;</a>
+                <div class="level5-features">
+                    <div class="level5-feat">
+                        <h4>Mineral-on-Mineral Bond</h4>
+                        <p>Our Grade-00 base coat is engineered in our Johor lab to chemically fuse with Shikkui and Liquid Metal finishes. Not a physical bond &mdash; a chemical one.</p>
+                    </div>
+                    <div class="level5-feat">
+                        <h4>HEPA-Vacuum Sanding</h4>
+                        <p>German-engineered dust extraction captures 99.7% of sanding particles instantly. No dust on your furniture. No mess in your lungs.</p>
+                    </div>
+                    <div class="level5-feat">
+                        <h4>True Flatness</h4>
+                        <p>We achieve a Level 5 finish &mdash; the highest architectural standard &mdash; eliminating &lsquo;flashing&rsquo; and light-shadows on feature walls.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="service-card dark photo-card" onclick="window.location.href='lime-plaster.html'"
-                    style="cursor:pointer;">
-                    <div class="card-photo"><img src="images/lime-plaster-hero.png" alt="Lime plaster wall texture">
-                    </div>
-                    <div class="card-body">
-                        <h3>Lime Plaster</h3>
-                        <p>Hand-applied mineral plasters creating depth, tactility, and architectural presence.</p>
-                        <ul class="check-list">
-                            <li>Best for: statement walls</li>
-                            <li>Samples mandatory</li>
-                            <li>Natural variation is inherent</li>
-                        </ul>
-                        <a href="lime-plaster.html" class="link-arrow">Lime Plaster Singapore &rarr;</a>
-                    </div>
-                </div>
-
-
+            <div class="level5-right">
+                <span class="level5-table-label">Skim Pricing by Property Type</span>
+                <table class="level5-table">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Requirement</th>
+                            <th>Add-on</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>New BTO (Bare)</td>
+                            <td>Micro-Skim + Mineral<span class="td-desc">Light prep for new substrates</span></td>
+                            <td>+S$1.50/sqft</td>
+                        </tr>
+                        <tr>
+                            <td>Resale / Occupied</td>
+                            <td>Full Level 5 Resurface<span class="td-desc">Strip acrylic, skim to mineral</span></td>
+                            <td>+S$3.50/sqft</td>
+                        </tr>
+                        <tr>
+                            <td>CCR / Luxury</td>
+                            <td>Structural Mesh + Skim<span class="td-desc">Anti-crack mesh with premium skim</span></td>
+                            <td>+S$5.50/sqft</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="level5-note">&ldquo;A normal painter adds a layer of plastic. We remove the plastic and add a layer of stone. Our Level 5 Skim ensures your wall breathes, preventing the peeling and bubbling common in Singapore&rsquo;s humidity.&rdquo;</p>
+            </div>
         </div>
     </section>
 
-    <!-- Access & Scaffolding note -->
-    <section class="section-padding bg-dark text-white">
-        <div class="container text-center">
-            <h3>Access &amp; Scaffolding</h3>
-            <p
-                style="max-width: 640px; margin: 1rem auto 0; color: rgba(255,255,255,0.55); font-size: 0.92rem; line-height: 1.75;">
-                Certain projects require scaffolding, boom lifts, or access systems due to height or site constraints.
-                These are assessed and quoted separately — not included by default.
-            </p>
+    <!-- ── SYSTEM 01 ── -->
+    <div class="editorial-plate" id="system-01">
+        <img src="images/lime-plaster-hero.png" alt="Grade-98 Shikkui Stone lime plaster wall texture">
+        <div class="plate-content">
+            <div class="plate-left">
+                <span class="plate-number">System 01</span>
+                <h2 class="plate-title">Shikkui Stone</h2>
+                <span class="plate-material">Grade-98 Shikkui · Mineral Lime Plaster</span>
+            </div>
+            <div class="plate-right">
+                <div class="plate-price">S$8.80</div>
+                <span class="plate-price-label">per sqft</span>
+                <span class="plate-benefit">The "Living Stone" wall.</span>
+            </div>
         </div>
-    </section>
+    </div>
+    <div class="plate-divider"></div>
 
-    <!-- CTA Band -->
-    <section class="section-padding" style="background: var(--color-bg-warm-2); text-align: center;">
+    <!-- ── SYSTEM 02 ── -->
+    <div class="editorial-plate" id="system-02">
+        <img src="images/microcement-hero.png" alt="No-hacking microcement bathroom finish">
+        <div class="plate-content">
+            <div class="plate-left">
+                <span class="plate-number">System 02</span>
+                <h2 class="plate-title">No-Hacking<br>Microcement</h2>
+                <span class="plate-material">Microcement · Applied over existing tiles</span>
+            </div>
+            <div class="plate-right">
+                <div class="plate-price">S$18</div>
+                <span class="plate-price-label">per sqft</span>
+                <span class="plate-benefit">5-day labor saving bathroom refresh.</span>
+            </div>
+        </div>
+    </div>
+    <div class="plate-divider"></div>
+
+    <!-- ── SYSTEM 03 ── -->
+    <div class="editorial-plate" id="system-03">
+        <img src="images/liquid-metal-zinc.png" alt="Cold-spray liquid metal zinc feature wall">
+        <div class="plate-content">
+            <div class="plate-left">
+                <span class="plate-number">System 03</span>
+                <h2 class="plate-title">Cold-Spray<br>Liquid Metal</h2>
+                <span class="plate-material">Real Zinc · Real Brass · Feature Walls</span>
+            </div>
+            <div class="plate-right">
+                <div class="plate-price">S$45</div>
+                <span class="plate-price-label">per sqft</span>
+                <span class="plate-benefit">Real Zinc/Brass feature walls.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Access note -->
+    <div class="systems-note">
         <div class="container">
-            <span
-                style="display: block; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-text-dark-secondary); margin-bottom: 1.5rem;">
-                Not sure which system is right for you?
-            </span>
-            <h2
-                style="font-family: var(--font-heading); font-style: italic; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; color: var(--color-text-dark); margin-bottom: 2rem;">
-                We specify before we apply.
-            </h2>
-            <a href="index.html#contact" class="btn"
-                style="color: var(--color-text-dark); border-bottom-color: rgba(26,24,23,0.3);">
-                Book a Consultation
-            </a>
+            <p>Scaffolding, boom lifts, and access systems are assessed and quoted separately — not included by default.</p>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="systems-cta">
+        <div class="container">
+            <span class="systems-cta-label">Not sure which system is right for you?</span>
+            <h2>We specify before we apply.</h2>
+            <a href="index.html#contact" class="btn">Book a Consultation</a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer — Editorial -->
     <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-column branding">
-                <div class="footer-brand">Plain Work</div>
-                <p>Mineral lime finishes for Singapore interiors. Lime paint, lime plaster — specified correctly, applied
-                    once.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Systems</h4>
-                <ul>
-                    <li><a href="lime-paint.html">Lime Paint</a></li>
-                    <li><a href="lime-plaster.html">Lime Plaster</a></li>                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="index.html#process">Process</a></li>
-                    <li><a href="journal.html">Journal</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="https://wa.me/6598004317" target="_blank">WhatsApp</a></li>
-                </ul>
+
+        <!-- Big statement -->
+        <div class="footer-statement">
+            <div class="container">
+                <p class="footer-statement-text">Specified correctly.<br><em>Applied once.</em></p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Plain Work. All rights reserved.</p>
+
+        <!-- Nav row -->
+        <div class="container">
+            <div class="footer-nav-row">
+                <div class="footer-nav-group">
+                    <span class="footer-nav-label">Systems</span>
+                    <ul class="footer-nav-links">
+                        <li><a href="systems.html#system-01">System 01 — Shikkui Stone</a></li>
+                        <li><a href="systems.html#system-02">System 02 — Microcement</a></li>
+                        <li><a href="systems.html#system-03">System 03 — Liquid Metal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-group">
+                    <span class="footer-nav-label">Company</span>
+                    <ul class="footer-nav-links">
+                        <li><a href="index.html#process">Process</a></li>
+                        <li><a href="journal.html">Journal</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/6598004317" target="_blank" class="footer-cta-link">WhatsApp Us →</a>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Plain Work. All rights reserved.</p>
+                <span>Singapore · Mineral Architectural Finishes</span>
+            </div>
         </div>
+
     </footer>
 
+
     <!-- Floating WhatsApp -->
+
     <a href="https://wa.me/6598004317" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path
@@ -156,4 +708,4 @@
 
 </body>
 
-</html><!-- deploy 20260308203730 -->
+</html>
