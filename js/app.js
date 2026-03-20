@@ -356,35 +356,60 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div id="pw-quoter-step-1">
                     <h2 style="font-family:'DM Serif Display',serif; font-size:1.8rem; margin-top:0; margin-bottom:1.5rem;">Instant AI Quote</h2>
                     
-                    <label style="display:block; margin-bottom:0.5rem; font-size:0.85rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">1. Scope of Work</label>
-                    <select id="q-scope" style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; margin-bottom:1.5rem; outline:none;">
-                        <option value="whole_3">Whole House (3-Room BTO)</option>
-                        <option value="whole_4">Whole House (4-Room BTO)</option>
-                        <option value="whole_5">Whole House (5-Room BTO)</option>
-                        <option value="wall_s">Feature Wall - Small (~6 sqm)</option>
-                        <option value="wall_m">Feature Wall - Medium (~12 sqm)</option>
-                        <option value="wall_l">Feature Wall - Large (~18 sqm)</option>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">Name *</label>
+                            <input type="text" id="q-name" required style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; outline:none; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">Phone / Email *</label>
+                            <input type="text" id="q-contact" required style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; outline:none; box-sizing: border-box;">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">Project Address *</label>
+                        <input type="text" id="q-address" placeholder="e.g. Blk 123 Tampines Ave 1" required style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; outline:none; box-sizing: border-box;">
+                    </div>
+
+                    <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">1. Scope of Work</label>
+                    <select id="q-scope" style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; margin-bottom:1rem; outline:none; box-sizing: border-box;" onchange="document.getElementById('wall-qty-wrapper').style.display = this.value.startsWith('wall') ? 'block' : 'none';">
+                        <option value="whole_3">Whole House (3-Room BTO) - Approx 2,200 sqft</option>
+                        <option value="whole_4">Whole House (4-Room BTO) - Approx 2,720 sqft</option>
+                        <option value="whole_5">Whole House (5-Room BTO) - Approx 3,200 sqft</option>
+                        <option value="wall_s">Feature Wall - Small (~6 sqm / 65 sqft)</option>
+                        <option value="wall_m">Feature Wall - Medium (~12 sqm / 130 sqft)</option>
+                        <option value="wall_l">Feature Wall - Large (~18 sqm / 195 sqft)</option>
                     </select>
 
-                    <label style="display:block; margin-bottom:0.5rem; font-size:0.85rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">2. Architectural System</label>
-                    <select id="q-system" style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; margin-bottom:1.5rem; outline:none;">
+                    <div id="wall-qty-wrapper" style="display: none; margin-bottom: 1.5rem; background: rgba(255,255,255,0.03); padding: 1rem; border-left: 2px solid #c9b48a;">
+                        <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#fff;">How many walls of this size?</label>
+                        <input type="number" id="q-wall-qty" value="1" min="1" max="10" style="width:100%; padding:0.8rem; background:#111; border:1px solid rgba(255,255,255,0.2); color:#fff; outline:none; box-sizing: border-box;">
+                    </div>
+
+                    <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">2. Architectural System</label>
+                    <select id="q-system" style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; margin-bottom:1rem; outline:none; box-sizing: border-box;">
                         <option value="lime_paint">Lime Paint</option>
                         <option value="lime_plaster">Lime Plaster (Shikkui Stone)</option>
                         <option value="microcement">Microcement</option>
                         <option value="liquid_metal">Liquid Metal</option>
                     </select>
+                    
+                    <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="q-ceiling" style="width: 18px; height: 18px; accent-color: #c9b48a; cursor: pointer;">
+                        <label for="q-ceiling" style="font-size: 0.85rem; cursor: pointer;">Include Ceiling Application (+50% Area Multiplier)</label>
+                    </div>
 
-                    <label style="display:block; margin-bottom:0.5rem; font-size:0.85rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">3. Upload Floorplan / Wall Photo</label>
-                    <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 1.5rem; text-align: center; margin-bottom: 2rem; cursor: pointer;" onclick="document.getElementById('q-file').click()">
+                    <label style="display:block; margin-bottom:0.5rem; font-size:0.75rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">3. Upload Floorplan / Wall Photo</label>
+                    <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 1.5rem; text-align: center; margin-bottom: 2rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='#c9b48a'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'" onclick="document.getElementById('q-file').click()">
                         <span id="q-file-label" style="opacity: 0.7;">Click to select file (PDF, JPG)</span>
-                        <input type="file" id="q-file" accept="image/*,application/pdf" style="display:none;" onchange="document.getElementById('q-file-label').innerText = this.files[0].name;">
+                        <input type="file" id="q-file" accept="image/*,application/pdf" style="display:none;" onchange="document.getElementById('q-file-label').innerText = this.files[0].name; document.getElementById('q-file-label').style.color='#c9b48a';">
                     </div>
 
                     <button id="q-analyze-btn" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer; transition:0.2s;">
                         Generate Instant Quote
                     </button>
                 </div>
-
                 <!-- Step 2: Loading AI -->
                 <div id="pw-quoter-step-2" style="display:none; text-align:center; padding: 2rem 0;">
                     <h3 style="font-family:'DM Serif Display',serif; font-size:1.5rem; margin-bottom:1rem;">KiloClaw Vision AI is analyzing...</h3>
@@ -417,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Hidden PDF Template -->
         <div id="quote-pdf-template" style="display:none;">
             <div style="padding: 60px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #111; background: #fff; width: 800px; max-width:100%;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 40px; border-bottom: 2px solid #111; padding-bottom: 20px;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 30px; border-bottom: 2px solid #111; padding-bottom: 20px;">
                     <div>
                         <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; text-transform: uppercase;">Plain Work</h1>
                         <p style="margin: 5px 0 0 0; color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">A Mineral Surface Studio</p>
@@ -428,31 +453,44 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p style="margin: 5px 0 0 0;"><strong>Quote Ref:</strong> PW-<span id="pdf-ref"></span></p>
                     </div>
                 </div>
+                
+                <div style="display:flex; justify-content:space-between; margin-bottom: 30px; font-size: 13px;">
+                    <div>
+                        <p style="margin:0 0 5px 0; font-weight:bold; text-transform:uppercase; color:#888;">Prepared For:</p>
+                        <p style="margin:0 0 3px 0; font-size:15px;" id="pdf-client-name"></p>
+                        <p style="margin:0 0 3px 0;" id="pdf-client-contact"></p>
+                        <p style="margin:0;" id="pdf-client-address"></p>
+                    </div>
+                </div>
 
                 <h2 style="margin-top: 0; font-size: 20px; text-transform: uppercase; color: #111;">Project Estimate</h2>
                 
-                <div style="background: #f9f9f9; padding: 20px; margin: 30px 0; border: 1px solid #eee;">
-                    <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                <div style="background: #f9f9f9; padding: 20px; margin: 20px 0; border: 1px solid #eee;">
+                    <table style="width: 100%; text-align: left; border-collapse: collapse; font-size:14px;">
                         <tr>
-                            <th style="padding: 10px 0; border-bottom: 1px solid #ddd; width: 30%;">Scope of Work</th>
-                            <td style="padding: 10px 0; border-bottom: 1px solid #ddd;" id="pdf-scope"></td>
+                            <th style="padding: 12px 0; border-bottom: 1px solid #ddd; width: 35%;">Scope of Work</th>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #ddd;" id="pdf-scope"></td>
                         </tr>
                         <tr>
-                            <th style="padding: 10px 0; border-bottom: 1px solid #ddd;">Architectural System</th>
-                            <td style="padding: 10px 0; border-bottom: 1px solid #ddd;" id="pdf-system"></td>
+                            <th style="padding: 12px 0; border-bottom: 1px solid #ddd;">Architectural System</th>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #ddd;" id="pdf-system"></td>
                         </tr>
                         <tr>
-                            <th style="padding: 10px 0;">Base Material Cost</th>
-                            <td style="padding: 10px 0;">Included</td>
+                            <th style="padding: 12px 0; border-bottom: 1px solid #ddd;">Ceiling Application</th>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #ddd;" id="pdf-ceiling"></td>
                         </tr>
                         <tr>
-                            <th style="padding: 10px 0;">Artisan Application</th>
-                            <td style="padding: 10px 0;">Included</td>
+                            <th style="padding: 12px 0; border-bottom: 1px solid #ddd;">Base Material Cost</th>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #ddd;">Included</td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 12px 0;">Artisan Application</th>
+                            <td style="padding: 12px 0;">Included</td>
                         </tr>
                     </table>
                 </div>
 
-                <div style="text-align: right; margin-top: 40px; margin-bottom: 40px;">
+                <div style="text-align: right; margin-top: 30px; margin-bottom: 40px;">
                     <p style="font-size: 14px; color: #666; margin: 0 0 5px 0; text-transform: uppercase;">Estimated Investment</p>
                     <h2 style="font-size: 36px; margin: 0; color: #111;" id="pdf-price"></h2>
                 </div>
@@ -526,14 +564,32 @@ document.addEventListener("DOMContentLoaded", () => {
     let formattedSystem = "";
 
     analyzeBtn.onclick = () => {
+        // Validation
+        const name = document.getElementById('q-name').value.trim();
+        const contact = document.getElementById('q-contact').value.trim();
+        const address = document.getElementById('q-address').value.trim();
         const fileInput = document.getElementById('q-file');
+        
+        if(!name || !contact || !address) {
+            alert("Please provide your Name, Contact, and Project Address to generate the quote.");
+            return;
+        }
+
         if(!fileInput.files.length) {
-            alert("Please upload a floorplan or photo of the wall first.");
+            alert("Please upload a floorplan or photo of the wall.");
             return;
         }
 
         const scope = document.getElementById('q-scope').value;
         const system = document.getElementById('q-system').value;
+        const ceilingIncluded = document.getElementById('q-ceiling').checked;
+        const wallQty = parseInt(document.getElementById('q-wall-qty').value) || 1;
+
+        // Populate Lead Data for PDF early
+        document.getElementById('pdf-client-name').innerText = name;
+        document.getElementById('pdf-client-contact').innerText = contact;
+        document.getElementById('pdf-client-address').innerText = address;
+        document.getElementById('pdf-ceiling').innerText = ceilingIncluded ? "Yes (+50% Area)" : "No";
 
         // Pricing Logic Engine
         let price = 0;
@@ -543,24 +599,33 @@ document.addEventListener("DOMContentLoaded", () => {
         const systemRate = { 'lime_paint': 8.8, 'lime_plaster': 8.8, 'microcement': 18, 'liquid_metal': 45 };
 
         if (scope.startsWith('whole_')) {
-            formattedScope = "Whole House";
             if (system === 'lime_paint') {
-                if(scope === 'whole_3') price = 2488;
-                if(scope === 'whole_4') price = 3288;
-                if(scope === 'whole_5') price = 3888;
+                if(scope === 'whole_3') { price = 2488; formattedScope = "Whole House (3-Room BTO)"; }
+                if(scope === 'whole_4') { price = 3288; formattedScope = "Whole House (4-Room BTO)"; }
+                if(scope === 'whole_5') { price = 3888; formattedScope = "Whole House (5-Room BTO)"; }
+                
+                if (ceilingIncluded) {
+                    price = price * 1.5; // Add 50% for ceiling
+                }
             } else {
-                // Premium systems for whole house require custom quote
                 price = "Custom Quote Required";
+                formattedScope = "Whole House (" + scope.split('_')[1] + "-Room BTO)";
             }
         } else {
             // Feature Wall Logic
-            const sqft = sqftMap[scope];
-            const rate = systemRate[system];
-            price = Math.round(sqft * rate);
+            let baseSqft = sqftMap[scope] * wallQty;
+            if (ceilingIncluded) {
+                baseSqft = baseSqft * 1.5; // Adding ceiling area
+            }
             
-            if(scope === 'wall_s') formattedScope = "Feature Wall (Small, ~6sqm)";
-            if(scope === 'wall_m') formattedScope = "Feature Wall (Medium, ~12sqm)";
-            if(scope === 'wall_l') formattedScope = "Feature Wall (Large, ~18sqm)";
+            const rate = systemRate[system];
+            price = Math.round(baseSqft * rate);
+            
+            let sizeLabel = "Small";
+            if(scope === 'wall_m') sizeLabel = "Medium";
+            if(scope === 'wall_l') sizeLabel = "Large";
+            
+            formattedScope = `Feature Wall (${sizeLabel}, ~${Math.round(baseSqft)} sqft total)\nQuantity: ${wallQty} Wall(s)`;
         }
 
         formattedSystem = document.getElementById('q-system').options[document.getElementById('q-system').selectedIndex].text;
