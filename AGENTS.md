@@ -9,9 +9,9 @@ Core Mission: Automate the transition from "Paint Contractor" to "Architectural 
 * **The Philosophy**: 100% Breathable, Zero VOC, Petrifying Stone. NEVER offer Microcement, Tadelakt, or Liquid Metal (Risk/Skill Cap).
 
 ## 2. Real-Time Pricing Engine (Singapore & Malaysia)
-* **3-Room BTO**: S$988 (Nett)
-* **4-Room BTO**: S$1,288 (Nett)
-* **5-Room BTO**: S$1,588 (Nett)
+* **3-Room BTO**: S$2,488 (Nett)
+* **4-Room BTO**: S$3,288 (Nett)
+* **5-Room BTO**: S$3,888 (Nett)
 * **Bespoke Shikkui**: S$8.80 /sqft
 * **Level 5 Skim Add-on**: S$3.50/sqft (Resale) | S$1.50 /sqft (BTO Prep)
 * **Filter**: Only accept leads willing to pay the S$29 Swatch Box or S$188 Deposit.

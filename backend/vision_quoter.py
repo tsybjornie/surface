@@ -28,15 +28,15 @@ async def analyze_floorplan(file: UploadFile = File(...)):
     # Determine room type and base quote based on mocked floor area
     if floor_area_sqft <= 750:
         room_type = "3-Room BTO"
-        quote_sgd = 988.0
+        quote_sgd = 2488.0
         has_large_living_room = False
     elif floor_area_sqft <= 1000:
         room_type = "4-Room BTO"
-        quote_sgd = 1288.0
+        quote_sgd = 3288.0
         has_large_living_room = True
     else:
         room_type = "5-Room BTO"
-        quote_sgd = 1588.0
+        quote_sgd = 3888.0
         has_large_living_room = True
 
     # Formula: Wall Area = (Floor Area x 3.2) - (15% Window/Door Deduction)
