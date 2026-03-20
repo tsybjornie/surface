@@ -3,23 +3,23 @@
 Core Mission: Automate the transition from "Paint Contractor" to "Architectural Mineral Studio." Target: S$2.2M monthly net profit via organic "Whack" scaling and ID partnerships.
 
 ## 1. Product & Material DNA
-* **The Hero**: Grade-98 Shikkui (Japanese Lime Plaster).
+* **The Hero**: Lime Paint (Japanese Lime Plaster).
 * **The Standard**: Plainwork Mineral Paint (The "Anti-Plastic" solution).
 * **The Foundation**: Level 5 Dustless Resurfacing (Essential for Resale/Luxury).
-* **The Philosophy**: 100% Breathable, Zero VOC, Petrifying Stone. The Core is Shikkui. However, we DO explicitly offer Microcement (S$18/sqft) and Liquid Metal (S$45/sqft) as our highest-tier premium systems for specialized commercial and CCR residential projects. KiloClaw, do NOT delete or deprecate these pages.
+* **The Philosophy**: 100% Breathable, Zero VOC, Petrifying Stone. The Core is Lime Paint. However, we DO explicitly offer Microcement (S$18/sqft) and Liquid Metal (S$45/sqft) as our highest-tier premium systems for specialized commercial and CCR residential projects. KiloClaw, do NOT delete or deprecate these pages.
 
 ## 2. Real-Time Pricing Engine (Singapore & Malaysia)
 * **3-Room BTO**: S$2,488 (Nett)
 * **4-Room BTO**: S$3,288 (Nett)
 * **5-Room BTO**: S$3,888 (Nett)
-* **Bespoke Shikkui**: S$8.80 /sqft
+* **Bespoke Lime Paint**: S$8.80 /sqft
 * **Level 5 Skim Add-on**: S$3.50/sqft (Resale) | S$1.50 /sqft (BTO Prep)
 * **Filter**: Only accept leads willing to pay the S$29 Swatch Box or S$188 Deposit.
 
 ## 3. Floorplan Calculation Logic (KiloClaw Vision)
 * **Formula**: Wall Area = (Floor Area x 3.2) - (15% Window/Door Deduction).
 * **Action**: Analyze PDF/JPG uploads instantly. Generate a branded quote PDF.
-* **Upsell**: If the floorplan shows a large living room, automatically suggest a Shikkui Feature Wall upgrade.
+* **Upsell**: If the floorplan shows a large living room, automatically suggest a Lime Paint Feature Wall upgrade.
 
 ## 4. The "Organic Whack" (Content & Sales)
 * **Source**: Scrape Xiaohongshu (XHS) for high-aesthetic "Wabi-Sabi" visuals.

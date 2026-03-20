@@ -15,7 +15,7 @@ except ImportError:
 class XHSScraper:
     """
     Xiaohongshu (XHS) Scraping Engine.
-    Target: High-aesthetic 'Wabi-Sabi' visuals, Microcement, Lime wash, Shikkui.
+    Target: High-aesthetic 'Wabi-Sabi' visuals, Microcement, Lime wash, Lime Paint.
     """
     def __init__(self, output_dir: str = "data/xhs_wabi_sabi", mock: bool = False):
         self.output_dir = output_dir
@@ -24,7 +24,7 @@ class XHSScraper:
             "Wabi-Sabi interior",
             "Microcement",
             "Lime wash",
-            "Shikkui"
+            "Lime Paint"
         ]
         os.makedirs(self.output_dir, exist_ok=True)
         self.results_file = os.path.join(self.output_dir, "xhs_data.json")

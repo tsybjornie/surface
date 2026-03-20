@@ -44,7 +44,7 @@ async def analyze_floorplan(file: UploadFile = File(...)):
     
     upsell_text = None
     if has_large_living_room:
-        upsell_text = "Large living room detected. We highly recommend a Shikkui Feature Wall upgrade (S$8.80 /sqft) to elevate the space."
+        upsell_text = "Large living room detected. We highly recommend a Lime Paint Feature Wall upgrade (S$8.80 /sqft) to elevate the space."
 
     return QuoteResponse(
         floor_area_sqft=floor_area_sqft,

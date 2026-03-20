@@ -29,7 +29,7 @@ class AvatarGenerator:
     def rewrite_script(self, original_desc):
         """
         Rewrites the scraped XHS description into a 'Mineral Purity' script.
-        Follows the 'Anti-Plastic' and 'Grade-98 Shikkui' narrative.
+        Follows the 'Anti-Plastic' and 'Lime Paint' narrative.
         """
         # In a production environment, this could be passed to an LLM like OpenAI GPT-4.
         # For now, we apply a template transformation.
@@ -37,7 +37,7 @@ class AvatarGenerator:
         script = f"Look at this typical renovation... {original_desc[:50]}...\n\n"
         script += "But don't do this! Most standard paints are basically plastic. "
         script += "For true Wabi-Sabi, you need the real deal. "
-        script += "We use Grade-98 Shikkui - Japanese Lime Plaster. "
+        script += "We use Lime Paint - Japanese Lime Plaster. "
         script += "It's 100% Breathable, Zero VOC, and literally turns into petrifying stone. "
         script += "Get the Level 5 Dustless Resurfacing finish you deserve. "
         script += "Check out our $29 Swatch Box or drop a 'price?' below for the deposit link."
@@ -147,11 +147,11 @@ class KiloClawBot:
             
             if "price" in text or "how much" in text:
                 print(f"[KiloClaw Action] Detected price inquiry from {user}.")
-                print(f"-> Replying to {user}: 'We exclusively use Grade-98 Shikkui. Secure your Level 5 Dustless finish here: {self.antigravity_link}'")
+                print(f"-> Replying to {user}: 'We exclusively use Lime Paint. Secure your Level 5 Dustless finish here: {self.antigravity_link}'")
             else:
                 if "microcement" in text:
                      print(f"[KiloClaw Action] Educational reply to {user}.")
-                     print(f"-> Replying to {user}: 'We never use Microcement. We only use 100% Breathable Grade-98 Shikkui.'")
+                     print(f"-> Replying to {user}: 'We never use Microcement. We only use 100% Breathable Lime Paint.'")
                 else:
                     print(f"No action needed for {user}.")
             
