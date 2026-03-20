@@ -6,7 +6,7 @@ Core Mission: Automate the transition from "Paint Contractor" to "Architectural 
 * **The Hero**: Grade-98 Shikkui (Japanese Lime Plaster).
 * **The Standard**: Plainwork Mineral Paint (The "Anti-Plastic" solution).
 * **The Foundation**: Level 5 Dustless Resurfacing (Essential for Resale/Luxury).
-* **The Philosophy**: 100% Breathable, Zero VOC, Petrifying Stone. NEVER offer Microcement, Tadelakt, or Liquid Metal (Risk/Skill Cap).
+* **The Philosophy**: 100% Breathable, Zero VOC, Petrifying Stone. We offer Microcement (S$18/sqft) and Liquid Metal (S$45/sqft) as premium systems.
 
 ## 2. Real-Time Pricing Engine (Singapore & Malaysia)
 * **3-Room BTO**: S$2,488 (Nett)
