@@ -40,7 +40,7 @@ class AvatarGenerator:
         script += "We use Lime Paint - Japanese Lime Plaster. "
         script += "It's 100% Breathable, Zero VOC, and literally turns into petrifying stone. "
         script += "Get the Level 5 Dustless Resurfacing finish you deserve. "
-        script += "Check out our $29 Swatch Box or drop a 'price?' below for the deposit link."
+        script += "Not sure what color fits? Drop a 'price?' below to get our $12 Vibe Kit, $19 Designer Deck, or $29 Master Studio box — fully creditable towards your $188 deposit."
         
         return script
 
@@ -123,39 +123,50 @@ class KiloClawBot:
     def __init__(self):
         """
         KiloClaw bot for monitoring comments on TikTok and Meta.
+        Implements the 3-Box "Whack" Architecture.
         """
         self.antigravity_link = "https://antigravity.link/deposit"
         
-    def monitor_comments(self, platform="TikTok"):
-        """
-        Monitors comments for 'price?' and automatically replies with the Antigravity link.
-        """
-        print(f"\n[KiloClaw] Monitoring {platform} comments for 'price?' triggers...")
+    def get_vibe_kit_logic(self, text):
+        colors = {
+            "red": ("The Crimson Kit", "Terracotta, Rose, Oxide, Clay"),
+            "blue": ("The Azure Kit", "Lapis, Celeste, Glacier, Aegean"),
+            "green": ("The Verdant Kit", "Sage, Olive, Pine, Mint"),
+            "black": ("The Noir Kit", "Basalt, Flint, Schist, Marl"),
+            "grey": ("The Noir Kit", "Basalt, Flint, Schist, Marl")
+        }
+        for color, data in colors.items():
+            if color in text:
+                return f"{color.capitalize()} is a bold architectural choice. I've curated '{data[0]}' for you with 4 mineral tones: {data[1]}. Order this S$12 kit now to see which one holds the light in your living room. Fully creditable towards your deposit."
+        return None
         
-        # MOCK: Simulating incoming comments stream
+    def monitor_comments(self, platform="TikTok"):
+        print(f"\n[KiloClaw] Monitoring {platform} comments...")
+        
         mock_comments = [
-            {"user": "@user123", "text": "Wow, this looks amazing! price?"},
-            {"user": "@designfan", "text": "Is this microcement?"},
+            {"user": "@user123", "text": "I want a specific Forest Green"},
+            {"user": "@designfan", "text": "I don't know what color I want yet"},
             {"user": "@hdb_owner", "text": "How much for a 4-room BTO? Price?"}
         ]
         
         for comment in mock_comments:
             text = comment.get("text", "").lower()
             user = comment.get("user", "")
-            
             print(f"\nNew comment from {user}: '{text}'")
             
-            if "price" in text or "how much" in text:
-                print(f"[KiloClaw Action] Detected price inquiry from {user}.")
-                print(f"-> Replying to {user}: 'We exclusively use Lime Paint. Secure your Level 5 Dustless finish here: {self.antigravity_link}'")
-            else:
-                if "microcement" in text:
-                     print(f"[KiloClaw Action] Educational reply to {user}.")
-                     print(f"-> Replying to {user}: 'We never use Microcement. We only use 100% Breathable Lime Paint.'")
-                else:
-                    print(f"No action needed for {user}.")
+            vibe_response = self.get_vibe_kit_logic(text)
             
-            time.sleep(1) # simulate monitoring delay
+            if vibe_response:
+                print(f"[KiloClaw Action] 'Whatever' Rule triggered. [Visual: Avatar holding swatch]")
+                print(f"-> Replying to {user}: '{vibe_response}'")
+            elif "not sure" in text or "don't know" in text:
+                print(f"[KiloClaw Action] 12-Pack Push triggered.")
+                print(f"-> Replying to {user}: 'If you're unsure, grab our S$19 Designer\'s Deck. It has 12 of our bestselling 'Safe' hits. Best professional shortcut! Fully creditable against the S$188 deposit.'")
+            elif "price" in text or "how much" in text:
+                print(f"[KiloClaw Action] Detected generic price inquiry.")
+                print(f"-> Replying to {user}: 'We offer S$12/S$19/S$29 sample kits fully creditable towards your job. Secure your Level 5 Dustless finish here: {self.antigravity_link}'")
+            
+            time.sleep(1)
 
 
 if __name__ == "__main__":

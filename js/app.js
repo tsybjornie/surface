@@ -215,37 +215,48 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Create the drawer HTML
     const drawerHTML = `
         <div id="pw-checkout-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9998; opacity:0; visibility:hidden; transition: 0.3s ease;"></div>
-        <div id="pw-checkout-drawer" style="position:fixed; top:0; right:-400px; width:100%; max-width:400px; height:100%; background:#111110; z-index:9999; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); display:flex; flex-direction:column; box-shadow:-5px 0 15px rgba(0,0,0,0.5); color:#f0ece6; font-family:'Inter', sans-serif;">
+
+        <div id="pw-checkout-drawer" style="position:fixed; top:0; right:-450px; width:100%; max-width:450px; height:100%; background:#111110; z-index:9999; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); display:flex; flex-direction:column; box-shadow:-5px 0 15px rgba(0,0,0,0.5); color:#f0ece6; font-family:'Inter', sans-serif;">
             <div style="padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center;">
-                <h2 style="font-family:'DM Serif Display',serif; font-size:1.5rem; margin:0;">Your Cart</h2>
+                <h2 style="font-family:'DM Serif Display',serif; font-size:1.5rem; margin:0;">Select Your Kit</h2>
                 <button id="pw-checkout-close" style="background:none; border:none; color:#f0ece6; font-size:1.5rem; cursor:pointer;">&times;</button>
             </div>
             
             <div style="padding: 1.5rem; flex: 1; overflow-y:auto;">
-                <div style="display:flex; gap:1rem; align-items:center; margin-bottom: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: #1a1a18; border:1px solid rgba(201,180,138,0.2); border-radius:4px; display:flex; align-items:center; justify-content:center;">
-                        <span style="font-size:2rem;">🎨</span>
+                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top:0; margin-bottom: 1.5rem; line-height: 1.5;">All kits are fully creditable towards your S$188 site assessment deposit.</p>
+                
+                <!-- Option 1: The Vibe Kit -->
+                <div class="kit-option" data-price="12" style="border: 1px solid rgba(201,180,138,0.4); border-radius: 4px; padding: 1rem; margin-bottom: 1rem; cursor: pointer; transition: 0.2s; background: rgba(201,180,138,0.05);">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.5rem;">
+                        <h3 style="margin:0; font-family:'DM Serif Display',serif; font-size:1.2rem;">The Vibe Kit</h3>
+                        <span style="font-size:1rem; color:#c9b48a;">S$12.00</span>
                     </div>
-                    <div style="flex:1;">
-                        <h3 style="margin:0 0 0.25rem 0; font-size:1rem; font-family:'DM Serif Display',serif; font-weight:400;">Mineral Swatch Box</h3>
-                        <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">52 Physical Samples</p>
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <span style="font-size:0.9rem; color:#c9b48a;">S$29.00</span>
-                            <div style="display:flex; align-items:center; border:1px solid rgba(255,255,255,0.1); border-radius:2px;">
-                                <button style="background:none; border:none; color:#fff; padding:0.2rem 0.5rem; cursor:pointer;">-</button>
-                                <span style="font-size:0.85rem; padding:0 0.5rem;">1</span>
-                                <button style="background:none; border:none; color:#fff; padding:0.2rem 0.5rem; cursor:pointer;">+</button>
-                            </div>
-                        </div>
+                    <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">"I know my color family."</p>
+                    <p style="margin:0; font-size:0.75rem; color:rgba(255,255,255,0.4);">4 Custom Mineral Tones (e.g. The Verdant Kit, The Crimson Kit).</p>
+                </div>
+
+                <!-- Option 2: The Designer's Deck -->
+                <div class="kit-option" data-price="19" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1rem; margin-bottom: 1rem; cursor: pointer; transition: 0.2s;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.5rem;">
+                        <h3 style="margin:0; font-family:'DM Serif Display',serif; font-size:1.2rem;">The Designer's Deck</h3>
+                        <span style="font-size:1rem; color:#c9b48a;">S$19.00</span>
                     </div>
+                    <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">"I don't know what I want."</p>
+                    <p style="margin:0; font-size:0.75rem; color:rgba(255,255,255,0.4);">12 Bestsellers — The "Safe" architectural hits.</p>
+                </div>
+
+                <!-- Option 3: The Master Studio -->
+                <div class="kit-option" data-price="29" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1rem; margin-bottom: 1rem; cursor: pointer; transition: 0.2s;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.5rem;">
+                        <h3 style="margin:0; font-family:'DM Serif Display',serif; font-size:1.2rem;">The Master Studio</h3>
+                        <span style="font-size:1rem; color:#c9b48a;">S$29.00</span>
+                    </div>
+                    <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">"I want the whole library."</p>
+                    <p style="margin:0; font-size:0.75rem; color:rgba(255,255,255,0.4);">52 Tones — The full mineral spectrum.</p>
                 </div>
                 
                 <hr style="border:none; border-top:1px solid rgba(255,255,255,0.06); margin: 2rem 0;">
                 
-                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-                    <span style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Subtotal</span>
-                    <span style="font-size:0.9rem;">S$29.00</span>
-                </div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:1.5rem;">
                     <span style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Shipping</span>
                     <span style="font-size:0.9rem; color:#c9b48a;">Free</span>
@@ -255,14 +266,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <div style="padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); background:#0a0907;">
                 <div style="display:flex; justify-content:space-between; margin-bottom:1.5rem;">
                     <strong style="font-size:1.1rem; font-family:'DM Serif Display',serif;">Total</strong>
-                    <strong style="font-size:1.1rem;">S$29.00</strong>
+                    <strong id="pw-checkout-total" style="font-size:1.1rem;">S$12.00</strong>
                 </div>
                 <button id="pw-checkout-btn" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; border-radius:2px; transition: 0.2s;">
                     Checkout Securely
                 </button>
                 <p style="text-align:center; font-size:0.7rem; color:rgba(255,255,255,0.3); margin-top:1rem;">Powered by Stripe</p>
-            </div>
-        </div>
+            </div>        </div>
     `;
     
     document.body.insertAdjacentHTML('beforeend', drawerHTML);
@@ -272,6 +282,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.getElementById('pw-checkout-close');
     const checkoutBtn = document.getElementById('pw-checkout-btn');
 
+    
+    // Logic for Kit Selection
+    const kitOptions = document.querySelectorAll('.kit-option');
+    const totalEl = document.getElementById('pw-checkout-total');
+    let selectedPrice = 12;
+
+    kitOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            // Reset styles
+            kitOptions.forEach(opt => {
+                opt.style.borderColor = 'rgba(255,255,255,0.1)';
+                opt.style.background = 'transparent';
+            });
+            // Set active style
+            option.style.borderColor = 'rgba(201,180,138,0.4)';
+            option.style.background = 'rgba(201,180,138,0.05)';
+            
+            // Update total
+            selectedPrice = option.getAttribute('data-price');
+            totalEl.innerText = 'S$' + selectedPrice + '.00';
+        });
+    });
+    
     function openCart(e) {
         if(e) e.preventDefault();
         overlay.style.visibility = 'visible';
@@ -301,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach to any button that says "Swatch Box"
     const buttons = document.querySelectorAll('a, button');
     buttons.forEach(btn => {
-        if (btn.textContent.includes('Swatch Box') || btn.getAttribute('href') === '#swatch') {
+        if (btn.textContent.includes('Sample Kit') || btn.textContent.includes('Swatch Box') || btn.getAttribute('href') === '#swatch') {
             btn.addEventListener('click', openCart);
         }
     });

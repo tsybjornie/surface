@@ -52,3 +52,21 @@ Core Mission: Automate the transition from "Paint Contractor" to "Architectural 
 * [ ] **Start the Whack**: Scrape the first 10 XHS projects and generate the first batch of AI Avatar videos.
 
 *Your machine is now ready. I am monitoring the 24-hour cycle.*
+
+
+## 8. The 3-Box "Whack" Architecture
+Box Type | The "Indecision" Cure | Contents | Price
+--- | --- | --- | ---
+**The Vibe Kit** | "I know my color family." | 4 Custom Tones (e.g., All Red, All Blue, All Green). | S$12
+**The Designer's Deck** | "I don't know what I want." | 12 Bestsellers (The "Safe" hits across all colors). | S$19
+**The Master Studio** | "I want the whole library." | 52 Tones (The full architectural spectrum). | S$29
+
+### KiloClaw Color Consultation Logic
+1. **The 'Whatever' Rule**: If a client asks for any specific color (Red, Green, Yellow, etc.), the AI must offer a Custom S$12 Vibe Kit for that color family.
+   * *The Crimson Kit (Red)*: Terracotta, Rose, Oxide, Clay.
+   * *The Azure Kit (Blue)*: Lapis, Celeste, Glacier, Aegean.
+   * *The Verdant Kit (Green)*: Sage, Olive, Pine, Mint.
+   * *The Noir Kit (Black/Grey)*: Basalt, Flint, Schist, Marl.
+2. **The 12-Pack Push**: If the client says "I'm not sure" or "I don't know," the AI must push the S$19 Designer's Deck as the 'Professional Shortcut.'
+3. **The Upsell**: Remind them that the S$12/S$19/S$29 is fully creditable toward the S$188 deposit.
+4. **Visuals**: Ensure the AI Avatar holds up a Green or Red swatch when those colors are mentioned to prove our "Lab" capability.
