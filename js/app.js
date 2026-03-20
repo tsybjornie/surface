@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 40px; border-bottom: 2px solid #111; padding-bottom: 20px;">
                     <div>
                         <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; text-transform: uppercase;">Plain Work</h1>
-                        <p style="margin: 5px 0 0 0; color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">Architectural Mineral Studio</p>
+                        <p style="margin: 5px 0 0 0; color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">A Mineral Surface Studio</p>
                     </div>
                     <div style="text-align: right; font-size: 14px; color: #444;">
                         <p style="margin: 0;"><strong>Date:</strong> <span id="pdf-date"></span></p>
@@ -463,6 +463,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p style="margin: 0 0 5px 0;">2. <strong>Mandatory Preparation:</strong> Prices exclude Level 5 Dustless Resurfacing prep (+S$1.50 - S$3.50/sqft) if required upon physical site assessment.</p>
                     <p style="margin: 0 0 5px 0;">3. Exact replication of sample textures is not possible. Mineral finishes are living materials and artisan-applied.</p>
                     <p style="margin: 0;">4. To lock in this rate and schedule a physical site assessment, please remit the S$188 deposit at plainwork.sg.</p>
+                    <div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ccc; font-size: 10px; color: #888;">
+                        <p style="margin: 0 0 8px 0; font-style: italic; color: #444;">"Every wall we do is an 'Original Copy'—a unique mineral texture replicated from nature, backed by the technical precision of Futureproof Industries."</p>
+                        <p style="margin: 0 0 3px 0;"><strong>Managed & Installed by:</strong> Original Copy Pte Ltd (Singapore)</p>
+                        <p style="margin: 0;"><strong>Material Origin:</strong> Formulated by Futureproof Industries Sdn Bhd (Malaysia)</p>
+                    </div>
                 </div>
             </div>
         </div>

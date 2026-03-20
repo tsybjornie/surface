@@ -70,3 +70,29 @@ Box Type | The "Indecision" Cure | Contents | Price
 2. **The 12-Pack Push**: If the client says "I'm not sure" or "I don't know," the AI must push the S$19 Designer's Deck as the 'Professional Shortcut.'
 3. **The Upsell**: Remind them that the S$12/S$19/S$29 is fully creditable toward the S$188 deposit.
 4. **Visuals**: Ensure the AI Avatar holds up a Green or Red swatch when those colors are mentioned to prove our "Lab" capability.
+
+
+## 9. Corporate Structure & Billing Hierarchy
+This structure ensures BCA compliance in Singapore, maximizes tax efficiency via the Malaysian lab, and prepares the brand for a clean "Asset + Service" exit strategy.
+
+* **The Brand**: Plainwork
+* **The Lab (MY)**: Futureproof Industries Sdn Bhd (The "Innovation & Supply" arm).
+* **The Studio (SG)**: Original Copy Pte Ltd (The "BCA-Registered Implementation" arm).
+
+### Legal & Operational Workflow
+| Stage | Action | Entity Responsible |
+| --- | --- | --- |
+| **Lead Gen** | AI Avatar "Whack" on TikTok/XHS | Plainwork (Global Brand) |
+| **S$12/S$19/S$29 Sale** | Sample Box Checkout | Original Copy Pte Ltd |
+| **S$188 Deposit** | Project Reservation | Original Copy Pte Ltd |
+| **Material Supply** | Lab Production in Johor | Futureproof Industries Sdn Bhd |
+| **Final Payout** | S$150/day Team Payout | Original Copy Pte Ltd |
+
+### Billing & Stripe Logic
+* **Invoice Header**: "Plainwork — A Mineral Surface Studio"
+* **Billing Entity**: "Managed and Installed by Original Copy Pte Ltd (Singapore)"
+* **Material Origin**: "Mineral Lime formulated by Futureproof Industries Sdn Bhd (Malaysia)"
+* **Stripe Statement Descriptor**: `ORIGINAL*PLAINWORK`
+
+### The "Original Copy" Sales Hook
+> "Every wall we do is an 'Original Copy'—a unique mineral texture replicated from nature, backed by the technical precision of Futureproof Industries."
