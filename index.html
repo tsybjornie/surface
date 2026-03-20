@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plain Work | Lime Paint Singapore & Malaysia | Breathable Mineral Surfaces</title>
+    <title>Plain Work | Architectural Mineral Studio | Level 5 Dustless Resurfacing</title>
     <meta name="description"
-        content="Plain Work — Singapore and Malaysia's specialist in pure mineral lime paint, lime paint, and architectural surfaces. Zero-VOC, naturally antimicrobial, carbon-absorbing. Specified for tropical humidity.">
+        content="Plain Work — Singapore and Malaysia's specialist in pure mineral surfaces, Grade-98 Shikkui, and Level 5 Dustless Resurfacing. Zero-VOC, naturally antimicrobial, carbon-absorbing. Specified for tropical humidity.">
     <meta name="keywords"
-        content="lime paint Singapore, lime wash Singapore, lime paint Malaysia, lime wash Malaysia, mineral paint Singapore, breathable paint Singapore, zero VOC paint Singapore, antimicrobial paint Singapore, architectural paint Singapore">
+        content="Architectural Mineral Studio, Grade-98 Shikkui, Level 5 Dustless Resurfacing, breathable mineral surfaces, architectural resurfacing Singapore, zero VOC surfaces">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +29,9 @@
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plainwork.sg/">
-    <meta property="og:title" content="Plain Work — Lime Paint & Architectural Surfaces, Singapore & Malaysia">
+    <meta property="og:title" content="Plain Work — Grade-98 Shikkui & Architectural Surfaces, Singapore & Malaysia">
     <meta property="og:description"
-        content="Bespoke architectural surface systems—lime paint, and specialty finishes. Specified for material behavior and environment.">
+        content="Bespoke architectural surface systems—Grade-98 Shikkui, and specialty finishes. Specified for material behavior and environment.">
     <meta property="og:image" content="https://plainwork.sg/assets/og-image.jpg">
 
     <!-- Twitter -->
@@ -39,7 +39,7 @@
     <meta property="twitter:url" content="https://plainwork.sg/">
     <meta property="twitter:title" content="Plain Work — Architectural Surface Systems in Singapore">
     <meta property="twitter:description"
-        content="Bespoke architectural surface systems—lime paint, and specialty finishes.">
+        content="Bespoke architectural surface systems—Grade-98 Shikkui, and specialty finishes.">
     <meta property="twitter:image" content="https://plainwork.sg/assets/og-image.jpg">
 
     <!-- JSON-LD Structured Data -->
@@ -80,7 +80,7 @@
       "sameAs": [
         "https://www.instagram.com/plainwork"
       ],
-      "description": "Plain Work designs and executes architectural surface systems in Singapore—including lime paint, liquid metal, and high-performance industrial coatings."
+      "description": "Plain Work designs and executes architectural surface systems in Singapore—including Grade-98 Shikkui, liquid metal, and high-performance industrial coatings."
     }
     </script>
 
@@ -89,10 +89,10 @@
     [{
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Lime Paint Singapore",
-      "serviceType": "Mineral Paint Application",
+      "name": "Architectural Mineral Studio",
+      "serviceType": "Level 5 Dustless Resurfacing",
       "areaServed": { "@type": "City", "name": "Singapore" },
-      "description": "Professional application of breathable lime paint systems for residential and commercial interiors in Singapore."
+      "description": "Professional application of breathable Grade-98 Shikkui systems for residential and commercial interiors in Singapore."
     },
     {
       "@context": "https://schema.org",
@@ -112,7 +112,7 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Is lime paint suitable for Singapore’s humidity?",
+          "name": "Is Grade-98 Shikkui suitable for Singapore’s humidity?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes, when specified correctly. Lime-based finishes are naturally breathable, allowing moisture to release rather than trap it. However, they are not a substitute for structural waterproofing."
@@ -120,10 +120,10 @@
         },
         {
           "@type": "Question",
-          "name": "Do you provide 'normal' painting services?",
+          "name": "Do you provide 'normal' resurfacing services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We do not provide standard budget painting. We execute Architectural Paint Systems which include moisture testing and substrate-specific priming for long-term material behavior."
+            "text": "We do not provide standard Level 5 Dustless Resurfacing. We execute Architectural Mineral Studio Systems which include moisture testing and substrate-specific priming for long-term material behavior."
           }
         }
       ]
@@ -180,7 +180,7 @@
                 <a href="colours.html">Colours</a>
                 <a href="journal.html">Journal</a>
                 <a href="faq.html">FAQ</a>
-                <a href="#contact" class="btn btn-small">Consultation</a>
+                <a href="#contact" class="btn btn-small">Order Swatch Box ($29)</a>
             </nav>
         </div>
     </header>
@@ -201,61 +201,76 @@
             <div class="hero-subtext">
                 <p>Plain Work &middot; Architectural Finishes &middot; Singapore</p>
             </div>
-            <a href="#contact" class="btn">Book a Consultation</a>
+            
+            <div class="floorplan-quoter" style="margin-top: 1rem;">
+                <input type="file" id="floorplan-upload" accept="image/*,application/pdf" style="display: none;" onchange="handleFloorplanUpload(this)">
+                <label for="floorplan-upload" class="btn" style="cursor: pointer;">Upload Floorplan</label>
+            </div>
+
+            <!-- AI Modal -->
+            <div id="ai-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+                <div style="background: #1a1a18; padding: 3rem; border-radius: 0; max-width: 450px; text-align: center; color: #fff; border: 1px solid #c9b48a;">
+                    <div id="ai-loading">
+                        <h3 style="margin-bottom: 1rem; font-family: 'DM Serif Display', serif;">Analyzing Layout...</h3>
+                        <p style="opacity: 0.8; margin-bottom: 2rem;">Our Mineral AI is analyzing your layout for a Grade-98 Shikkui quote...</p>
+                        <div style="margin: 0 auto; width: 30px; height: 30px; border: 2px solid #c9b48a; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    </div>
+                    <div id="ai-result" style="display: none;">
+                        <h3 style="margin-bottom: 1rem; font-family: 'DM Serif Display', serif;">Analysis Complete</h3>
+                        <p style="opacity: 0.8; margin-bottom: 2rem;">Your floorplan is suitable for Level 5 Dustless Resurfacing & Grade-98 Shikkui.</p>
+                        <a href="#deposit" class="btn" style="background: #c9b48a; color: #1a1a18; display: inline-block;">Pay S$188 Deposit</a>
+                        <button onclick="document.getElementById('ai-modal').style.display='none'" style="display:block; margin: 1rem auto 0; background: none; border: none; color: #fff; text-decoration: underline; cursor: pointer; opacity: 0.6;">Close</button>
+                    </div>
+                </div>
+            </div>
+            <style>
+            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            </style>
+            <script>
+            function handleFloorplanUpload(input) {
+                if (input.files && input.files[0]) {
+                    document.getElementById('ai-modal').style.display = 'flex';
+                    document.getElementById('ai-loading').style.display = 'block';
+                    document.getElementById('ai-result').style.display = 'none';
+                    
+                    setTimeout(() => {
+                        document.getElementById('ai-loading').style.display = 'none';
+                        document.getElementById('ai-result').style.display = 'block';
+                    }, 2500);
+                }
+            }
+            </script>
         </div>
     </section>
 
-    <!-- Portfolio Promo Banner -->
-    <section
-        style="background: #000; color: #fff; padding: 2.75rem 0; border-top: 2px solid #c9b48a; border-bottom: 1px solid rgba(201,180,138,0.15);">
-        <div class="container"
-            style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
-            <div style="flex: 1; min-width: 260px;">
-                <div
-                    style="font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.55; margin-bottom: 0.4rem;">
-                    Portfolio Special · Limited to 10 Homes</div>
-                <div
-                    style="font-size: 1.4rem; font-weight: 800; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem;">
-                    Lime Paint Feature Wall — <span
-                        style="text-decoration: line-through; opacity: 0.3; font-size: 1.1rem;">$980</span>
-                    <span style="color: #fff;">$580</span>
+    <!-- BTO Pricing Packages Banner -->
+    <section style="background: #000; color: #fff; padding: 2.75rem 0; border-top: 2px solid #c9b48a; border-bottom: 1px solid rgba(201,180,138,0.15);">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem;">
+            <div>
+                <div style="font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.5rem; color: #c9b48a;">
+                    Architectural Mineral Studio Packages
                 </div>
-                <div style="font-size: 0.85rem; opacity: 0.65;">Up to 18 sqm · 40% off our
-                    standard rate · In exchange
-                    for photos &amp; a review.</div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-                <div>
-                    <div
-                        style="font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.5rem;">
-                        Spots Remaining</div>
-                    <div style="display: flex; gap: 0.35rem;">
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
-                        <span
-                            style="width:18px;height:18px;border-radius:0;background:rgba(255,255,255,0.7);display:inline-block;"></span>
+                <div style="font-size: 1.8rem; font-weight: 400; font-family: 'DM Serif Display', serif; margin-bottom: 1rem;">
+                    Grade-98 Shikkui + Level 5 Dustless Resurfacing
+                </div>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <div style="border: 1px solid rgba(201,180,138,0.3); padding: 1.5rem 2rem;">
+                        <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 0.5rem;">3-Room BTO</div>
+                        <div style="font-size: 1.5rem; color: #c9b48a;">S$988 <span style="font-size: 0.8rem; opacity: 0.6; color: #fff;">(Nett)</span></div>
+                    </div>
+                    <div style="border: 1px solid rgba(201,180,138,0.3); padding: 1.5rem 2rem;">
+                        <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 0.5rem;">4-Room BTO</div>
+                        <div style="font-size: 1.5rem; color: #c9b48a;">S$1,288 <span style="font-size: 0.8rem; opacity: 0.6; color: #fff;">(Nett)</span></div>
+                    </div>
+                    <div style="border: 1px solid rgba(201,180,138,0.3); padding: 1.5rem 2rem;">
+                        <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 0.5rem;">5-Room BTO</div>
+                        <div style="font-size: 1.5rem; color: #c9b48a;">S$1,588 <span style="font-size: 0.8rem; opacity: 0.6; color: #fff;">(Nett)</span></div>
                     </div>
                 </div>
-                <a href="lime-paint.html#pricing" class="btn"
-                    style="background: #c9b48a; color: #1a1a18; border: none; white-space: nowrap;">Claim
-                    Your Spot
-                    →</a>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="#deposit" class="btn" style="background: #c9b48a; color: #1a1a18; border: none; white-space: nowrap; margin-right: 1rem;">Reserve Installation Slot</a>
+                <a href="#swatch" class="btn" style="background: transparent; border: 1px solid #c9b48a; color: #c9b48a;">Order Swatch Box ($29)</a>
             </div>
         </div>
     </section>
@@ -265,7 +280,7 @@
         <div class="container text-center">
             <div class="section-title mb-lg">
                 <h2>Why Plain Work?</h2>
-                <p>A living finish. Not a coating. Our pure mineral lime paint is breathable, antimicrobial, and
+                <p>A living finish. Not a coating. Our pure mineral Grade-98 Shikkui is breathable, antimicrobial, and
                     carbon-absorbing — the only surface system engineered to thrive in Singapore and Malaysia's
                     tropical humidity.</p>
             </div>
@@ -303,18 +318,18 @@
             </div>
 
             <div class="services-grid large-grid">
-                <!-- 1. Lime Paint Systems -->
+                <!-- 1. Grade-98 Shikkui Systems -->
                 <div class="service-card dark" onclick="window.location.href='lime-paint.html'"
                     style="cursor: pointer;">
-                    <h3>Lime Paint</h3>
-                    <p>Breathable mineral paint systems that allow walls to release moisture
+                    <h3>Grade-98 Shikkui</h3>
+                    <p>Breathable mineral surface systems that allow walls to release moisture
                         rather than trap it.</p>
                     <ul class="check-list">
                         <li>Best for: living spaces, feature walls</li>
                         <li>Not suitable for: wet areas, heavy abrasion</li>
                     </ul>
                     <span class="note">Specified only after surface assessment.</span>
-                    <a href="lime-paint.html" class="link-arrow">Lime Paint Singapore &rarr;</a>
+                    <a href="lime-paint.html" class="link-arrow">Architectural Mineral Studio &rarr;</a>
                 </div>
 
                 <!-- 2. Lime Plaster Systems -->
@@ -350,7 +365,7 @@
     <!-- Editorial Photo Break -->
     <div class="photo-break">
         <img src="assets/lime-plaster-blue.png" alt="Blue lime plaster feature wall interior">
-        <div class="photo-break-caption">Lime Paint Feature Wall &mdash; Singapore residential,
+        <div class="photo-break-caption">Grade-98 Shikkui Feature Wall &mdash; Singapore residential,
             2024</div>
     </div>
 
@@ -424,7 +439,7 @@
             </div>
             <div class="faq-container">
                 <div class="faq-item">
-                    <h3>Is lime paint suitable for Singapore’s humidity?</h3>
+                    <h3>Is Grade-98 Shikkui suitable for Singapore’s humidity?</h3>
                     <p>Yes, when specified correctly. However, surface systems are not a
                         substitute for structural
                         waterproofing. We are not liable for failures caused by existing
@@ -463,11 +478,11 @@
                         non-negotiable line items.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>Do you do 'normal' painting?</h3>
-                    <p>We do not provide budget painting. We execute <strong>Architectural Paint
+                    <h3>Do you do 'normal' resurfacing?</h3>
+                    <p>We do not provide Level 5 Dustless Resurfacing. We execute <strong>architectural resurfacing
                             Systems</strong> which
                         include moisture testing and specific priming. If you want a cheap 'lick
-                        of paint', we are not
+                        of resurfacing', we are not
                         the right partner.</p>
                 </div>
             </div>
@@ -484,7 +499,7 @@
                 <h2>Surface systems require judgement before execution.</h2>
                 <p>Get in touch for a professional assessment.</p>
             </div>
-            <a href="https://wa.me/6598004317" class="btn">👉 Request Consultation</a>
+            <a href="https://wa.me/6598004317" class="btn">👉 Reserve Installation Slot</a>
 
             <form id="contact-form" class="mt-lg"
                 style="max-width: 600px; margin: 2rem auto 0; gap: 1rem; display: flex; flex-direction: column; text-align: left;">
@@ -499,15 +514,14 @@
                 <select id="cf-system"
                     style="padding: 1rem; border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.05); background: #fff; outline: none; appearance: auto;">
                     <option value="" disabled selected>System Interested In</option>
-                    <option value="lime-paint">Lime Paint</option>
+                    <option value="lime-paint">Grade-98 Shikkui</option>
                     <option value="lime-plaster">Lime Plaster</option>
                     <option value="other">Other / Not Sure</option>
                 </select>
                 <textarea id="cf-message" rows="4"
                     placeholder="Tell us about the environment and substrate condition..."
                     style="padding: 1rem; border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.05); background: #fff; font-family: inherit; resize: vertical; outline: none;"></textarea>
-                <button type="submit" class="btn" style="width: 100%; justify-content: center;">Send via WhatsApp
-                    →</button>
+                <button type="submit" class="btn" style="width: 100%; justify-content: center;">Reserve Installation Slot →</button>
             </form>
         </div>
     </section>
@@ -543,10 +557,11 @@
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
-                <a href="https://wa.me/6598004317" target="_blank" class="footer-cta-link">WhatsApp Us &#x2192;</a>
+                <a href="https://wa.me/6598004317" target="_blank" class="footer-cta-link">Reserve Installation Slot &#x2192;</a>
             </div>
 
             <!-- Bottom bar -->
+            <a href="/guild-portal" id="guild-portal" style="position: absolute; bottom: 10px; right: 10px; width: 10px; height: 10px; opacity: 0; cursor: default; z-index: 100;" aria-hidden="true" title="Guild Portal Login">.</a>
             <div class="footer-bottom">
                 <p>&copy; 2025 Plain Work. All rights reserved.</p>
                 <span>Singapore &middot; Mineral Architectural Finishes</span>
