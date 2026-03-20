@@ -203,43 +203,10 @@
             </div>
             
             <div class="floorplan-quoter" style="margin-top: 1rem;">
-                <input type="file" id="floorplan-upload" accept="image/*,application/pdf" style="display: none;" onchange="handleFloorplanUpload(this)">
-                <label for="floorplan-upload" class="btn" style="cursor: pointer;">Upload Floorplan</label>
+                <button class="btn" style="cursor: pointer;" onclick="document.getElementById('pw-quoter-overlay').style.visibility='visible'; document.getElementById('pw-quoter-overlay').style.opacity='1'; document.getElementById('pw-quoter-modal').style.transform='translateY(0)'; document.getElementById('pw-quoter-step-1').style.display='block'; document.getElementById('pw-quoter-step-2').style.display='none'; document.getElementById('pw-quoter-step-3').style.display='none';">Get Instant Quote</button>
             </div>
 
-            <!-- AI Modal -->
-            <div id="ai-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
-                <div style="background: #1a1a18; padding: 3rem; border-radius: 0; max-width: 450px; text-align: center; color: #fff; border: 1px solid #c9b48a;">
-                    <div id="ai-loading">
-                        <h3 style="margin-bottom: 1rem; font-family: 'DM Serif Display', serif;">Analyzing Layout...</h3>
-                        <p style="opacity: 0.8; margin-bottom: 2rem;">Our Mineral AI is analyzing your layout for a Lime Paint quote...</p>
-                        <div style="margin: 0 auto; width: 30px; height: 30px; border: 2px solid #c9b48a; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                    </div>
-                    <div id="ai-result" style="display: none;">
-                        <h3 style="margin-bottom: 1rem; font-family: 'DM Serif Display', serif;">Analysis Complete</h3>
-                        <p style="opacity: 0.8; margin-bottom: 2rem;">Your floorplan is suitable for Level 5 Dustless Resurfacing & Lime Paint.</p>
-                        <a href="#deposit" class="btn" style="background: #c9b48a; color: #1a1a18; display: inline-block;">Pay S$188 Deposit</a>
-                        <button onclick="document.getElementById('ai-modal').style.display='none'" style="display:block; margin: 1rem auto 0; background: none; border: none; color: #fff; text-decoration: underline; cursor: pointer; opacity: 0.6;">Close</button>
-                    </div>
-                </div>
-            </div>
-            <style>
-            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-            </style>
-            <script>
-            function handleFloorplanUpload(input) {
-                if (input.files && input.files[0]) {
-                    document.getElementById('ai-modal').style.display = 'flex';
-                    document.getElementById('ai-loading').style.display = 'block';
-                    document.getElementById('ai-result').style.display = 'none';
-                    
-                    setTimeout(() => {
-                        document.getElementById('ai-loading').style.display = 'none';
-                        document.getElementById('ai-result').style.display = 'block';
-                    }, 2500);
-                }
-            }
-            </script>
+            
         </div>
     </section>
 

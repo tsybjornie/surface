@@ -339,3 +339,276 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Add html2pdf library to the document head
+    const script = document.createElement('script');
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+    document.head.appendChild(script);
+
+    // 2. HTML for the New Quoter Modal & PDF Template
+    const quoterHTML = `
+        <!-- Quoter Modal -->
+        <div id="pw-quoter-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9998; opacity:0; visibility:hidden; transition: 0.3s ease; display:flex; align-items:center; justify-content:center;">
+            <div id="pw-quoter-modal" style="background:#111110; border:1px solid #c9b48a; width:100%; max-width:500px; padding:2.5rem; position:relative; color:#fff; font-family:'Inter',sans-serif; transform:translateY(20px); transition:0.3s ease; max-height: 90vh; overflow-y:auto;">
+                <button id="pw-quoter-close" style="position:absolute; top:1rem; right:1.5rem; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">&times;</button>
+                
+                <!-- Step 1: Form Input -->
+                <div id="pw-quoter-step-1">
+                    <h2 style="font-family:'DM Serif Display',serif; font-size:1.8rem; margin-top:0; margin-bottom:1.5rem;">Instant AI Quote</h2>
+                    
+                    <label style="display:block; margin-bottom:0.5rem; font-size:0.85rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">1. Scope of Work</label>
+                    <select id="q-scope" style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; margin-bottom:1.5rem; outline:none;">
+                        <option value="whole_3">Whole House (3-Room BTO)</option>
+                        <option value="whole_4">Whole House (4-Room BTO)</option>
+                        <option value="whole_5">Whole House (5-Room BTO)</option>
+                        <option value="wall_s">Feature Wall - Small (~6 sqm)</option>
+                        <option value="wall_m">Feature Wall - Medium (~12 sqm)</option>
+                        <option value="wall_l">Feature Wall - Large (~18 sqm)</option>
+                    </select>
+
+                    <label style="display:block; margin-bottom:0.5rem; font-size:0.85rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">2. Architectural System</label>
+                    <select id="q-system" style="width:100%; padding:0.8rem; background:#1a1a18; border:1px solid rgba(255,255,255,0.2); color:#fff; margin-bottom:1.5rem; outline:none;">
+                        <option value="lime_paint">Lime Paint</option>
+                        <option value="lime_plaster">Lime Plaster (Shikkui Stone)</option>
+                        <option value="microcement">Microcement</option>
+                        <option value="liquid_metal">Liquid Metal</option>
+                    </select>
+
+                    <label style="display:block; margin-bottom:0.5rem; font-size:0.85rem; color:#c9b48a; text-transform:uppercase; letter-spacing:0.1em;">3. Upload Floorplan / Wall Photo</label>
+                    <div style="border: 1px dashed rgba(255,255,255,0.3); padding: 1.5rem; text-align: center; margin-bottom: 2rem; cursor: pointer;" onclick="document.getElementById('q-file').click()">
+                        <span id="q-file-label" style="opacity: 0.7;">Click to select file (PDF, JPG)</span>
+                        <input type="file" id="q-file" accept="image/*,application/pdf" style="display:none;" onchange="document.getElementById('q-file-label').innerText = this.files[0].name;">
+                    </div>
+
+                    <button id="q-analyze-btn" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer; transition:0.2s;">
+                        Generate Instant Quote
+                    </button>
+                </div>
+
+                <!-- Step 2: Loading AI -->
+                <div id="pw-quoter-step-2" style="display:none; text-align:center; padding: 2rem 0;">
+                    <h3 style="font-family:'DM Serif Display',serif; font-size:1.5rem; margin-bottom:1rem;">KiloClaw Vision AI is analyzing...</h3>
+                    <p style="opacity:0.7; margin-bottom:2rem; font-size:0.9rem;">Extracting dimensions and mapping material requirements.</p>
+                    <div style="margin: 0 auto; width: 40px; height: 40px; border: 2px solid #c9b48a; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+
+                <!-- Step 3: Result & PDF Download -->
+                <div id="pw-quoter-step-3" style="display:none; text-align:center;">
+                    <h3 style="font-family:'DM Serif Display',serif; font-size:1.8rem; margin-bottom:0.5rem; color:#c9b48a;">Analysis Complete</h3>
+                    <p style="opacity:0.8; margin-bottom:2rem; font-size:0.9rem;">Your official Plainwork estimate is ready.</p>
+                    
+                    <div style="background:#1a1a18; padding:1.5rem; border:1px solid rgba(255,255,255,0.1); margin-bottom:2rem;">
+                        <div style="font-size:0.8rem; opacity:0.6; text-transform:uppercase; margin-bottom:0.5rem;">Estimated Investment</div>
+                        <div id="q-final-price" style="font-size:2.5rem; font-family:'DM Serif Display',serif; margin-bottom:0.5rem;">S$0</div>
+                        <div style="font-size:0.8rem; color:#c9b48a;">Valid for 7 Days</div>
+                    </div>
+
+                    <button id="q-download-btn" style="width:100%; background:transparent; border:1px solid #c9b48a; color:#c9b48a; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer; margin-bottom:1rem; transition:0.2s;">
+                        ⬇ Download Official Quote (PDF)
+                    </button>
+                    
+                    <button onclick="window.location.href='#deposit'" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer;">
+                        Lock In S$188 Deposit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden PDF Template -->
+        <div id="quote-pdf-template" style="display:none;">
+            <div style="padding: 60px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #111; background: #fff; width: 800px; max-width:100%;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 40px; border-bottom: 2px solid #111; padding-bottom: 20px;">
+                    <div>
+                        <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; text-transform: uppercase;">Plain Work</h1>
+                        <p style="margin: 5px 0 0 0; color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">Architectural Mineral Studio</p>
+                    </div>
+                    <div style="text-align: right; font-size: 14px; color: #444;">
+                        <p style="margin: 0;"><strong>Date:</strong> <span id="pdf-date"></span></p>
+                        <p style="margin: 5px 0 0 0;"><strong>Valid Until:</strong> <span id="pdf-expiry"></span></p>
+                        <p style="margin: 5px 0 0 0;"><strong>Quote Ref:</strong> PW-<span id="pdf-ref"></span></p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 0; font-size: 20px; text-transform: uppercase; color: #111;">Project Estimate</h2>
+                
+                <div style="background: #f9f9f9; padding: 20px; margin: 30px 0; border: 1px solid #eee;">
+                    <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                        <tr>
+                            <th style="padding: 10px 0; border-bottom: 1px solid #ddd; width: 30%;">Scope of Work</th>
+                            <td style="padding: 10px 0; border-bottom: 1px solid #ddd;" id="pdf-scope"></td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 10px 0; border-bottom: 1px solid #ddd;">Architectural System</th>
+                            <td style="padding: 10px 0; border-bottom: 1px solid #ddd;" id="pdf-system"></td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 10px 0;">Base Material Cost</th>
+                            <td style="padding: 10px 0;">Included</td>
+                        </tr>
+                        <tr>
+                            <th style="padding: 10px 0;">Artisan Application</th>
+                            <td style="padding: 10px 0;">Included</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; margin-bottom: 40px;">
+                    <p style="font-size: 14px; color: #666; margin: 0 0 5px 0; text-transform: uppercase;">Estimated Investment</p>
+                    <h2 style="font-size: 36px; margin: 0; color: #111;" id="pdf-price"></h2>
+                </div>
+
+                <div style="border-top: 1px solid #ccc; padding-top: 20px; font-size: 11px; color: #666; line-height: 1.6;">
+                    <p style="margin: 0 0 10px 0;"><strong>Terms & Conditions:</strong></p>
+                    <p style="margin: 0 0 5px 0;">1. This is a preliminary estimate generated by KiloClaw Vision AI based on client inputs.</p>
+                    <p style="margin: 0 0 5px 0;">2. <strong>Mandatory Preparation:</strong> Prices exclude Level 5 Dustless Resurfacing prep (+S$1.50 - S$3.50/sqft) if required upon physical site assessment.</p>
+                    <p style="margin: 0 0 5px 0;">3. Exact replication of sample textures is not possible. Mineral finishes are living materials and artisan-applied.</p>
+                    <p style="margin: 0;">4. To lock in this rate and schedule a physical site assessment, please remit the S$188 deposit at plainwork.sg.</p>
+                </div>
+            </div>
+        </div>
+        <style>
+            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            .pw-btn-hover:hover { background: #b8a47d !important; }
+        </style>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', quoterHTML);
+
+    const overlay = document.getElementById('pw-quoter-overlay');
+    const modal = document.getElementById('pw-quoter-modal');
+    const closeBtn = document.getElementById('pw-quoter-close');
+    const analyzeBtn = document.getElementById('q-analyze-btn');
+    const downloadBtn = document.getElementById('q-download-btn');
+    
+    const step1 = document.getElementById('pw-quoter-step-1');
+    const step2 = document.getElementById('pw-quoter-step-2');
+    const step3 = document.getElementById('pw-quoter-step-3');
+
+    // Replace the old floorplan logic with this new one
+    const oldInputs = document.querySelectorAll('input[type="file"]');
+    oldInputs.forEach(input => {
+        if(input.id === 'floorplan-upload') {
+            const label = input.nextElementSibling;
+            if(label && label.tagName === 'LABEL') {
+                label.onclick = (e) => {
+                    e.preventDefault();
+                    openQuoter();
+                };
+            }
+        }
+    });
+
+    function openQuoter() {
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        modal.style.transform = 'translateY(0)';
+        step1.style.display = 'block';
+        step2.style.display = 'none';
+        step3.style.display = 'none';
+    }
+
+    function closeQuoter() {
+        overlay.style.opacity = '0';
+        modal.style.transform = 'translateY(20px)';
+        setTimeout(() => { overlay.style.visibility = 'hidden'; }, 300);
+    }
+
+    closeBtn.onclick = closeQuoter;
+    overlay.onclick = (e) => { if(e.target === overlay) closeQuoter(); };
+
+    let calculatedPrice = "0";
+    let formattedScope = "";
+    let formattedSystem = "";
+
+    analyzeBtn.onclick = () => {
+        const fileInput = document.getElementById('q-file');
+        if(!fileInput.files.length) {
+            alert("Please upload a floorplan or photo of the wall first.");
+            return;
+        }
+
+        const scope = document.getElementById('q-scope').value;
+        const system = document.getElementById('q-system').value;
+
+        // Pricing Logic Engine
+        let price = 0;
+        
+        // Sqft map for feature walls
+        const sqftMap = { 'wall_s': 65, 'wall_m': 130, 'wall_l': 195 };
+        const systemRate = { 'lime_paint': 8.8, 'lime_plaster': 8.8, 'microcement': 18, 'liquid_metal': 45 };
+
+        if (scope.startsWith('whole_')) {
+            formattedScope = "Whole House";
+            if (system === 'lime_paint') {
+                if(scope === 'whole_3') price = 2488;
+                if(scope === 'whole_4') price = 3288;
+                if(scope === 'whole_5') price = 3888;
+            } else {
+                // Premium systems for whole house require custom quote
+                price = "Custom Quote Required";
+            }
+        } else {
+            // Feature Wall Logic
+            const sqft = sqftMap[scope];
+            const rate = systemRate[system];
+            price = Math.round(sqft * rate);
+            
+            if(scope === 'wall_s') formattedScope = "Feature Wall (Small, ~6sqm)";
+            if(scope === 'wall_m') formattedScope = "Feature Wall (Medium, ~12sqm)";
+            if(scope === 'wall_l') formattedScope = "Feature Wall (Large, ~18sqm)";
+        }
+
+        formattedSystem = document.getElementById('q-system').options[document.getElementById('q-system').selectedIndex].text;
+        
+        if (typeof price === 'number') {
+            calculatedPrice = "S$" + price.toLocaleString();
+        } else {
+            calculatedPrice = price;
+        }
+
+        // UI Transition
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+
+        setTimeout(() => {
+            document.getElementById('q-final-price').innerText = calculatedPrice;
+            step2.style.display = 'none';
+            step3.style.display = 'block';
+        }, 2500);
+    };
+
+    downloadBtn.onclick = () => {
+        // Populate PDF Template
+        const today = new Date();
+        const expiry = new Date(today);
+        expiry.setDate(expiry.getDate() + 7);
+
+        document.getElementById('pdf-date').innerText = today.toLocaleDateString();
+        document.getElementById('pdf-expiry').innerText = expiry.toLocaleDateString();
+        document.getElementById('pdf-ref').innerText = Math.floor(100000 + Math.random() * 900000);
+        
+        document.getElementById('pdf-scope').innerText = formattedScope;
+        document.getElementById('pdf-system').innerText = formattedSystem;
+        document.getElementById('pdf-price').innerText = calculatedPrice;
+
+        const element = document.getElementById('quote-pdf-template');
+        element.style.display = 'block'; // make visible for html2pdf
+        
+        const opt = {
+            margin:       0,
+            filename:     'Plainwork_Estimate.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Change button text to show progress
+        const originalText = downloadBtn.innerText;
+        downloadBtn.innerText = "Generating PDF...";
+        
+        html2pdf().set(opt).from(element).save().then(() => {
+            element.style.display = 'none';
+            downloadBtn.innerText = originalText;
+        });
+    };
+});
