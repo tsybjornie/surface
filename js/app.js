@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // Send request to our KiloClaw Stripe Server
-            const response = await fetch('https://your-live-backend.com/api/create-checkout-session', {
+            const response = await fetch('https://api.surfaceproject.sg/api/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -463,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ⬇ Download Official Quote (PDF)
                     </button>
                     
-                    <button onclick="this.innerHTML='Connecting to Secure Server...'; fetch('https://your-live-backend.com/api/create-checkout-session', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kit_type:'deposit',price:188})}).then(res=>res.json()).then(data=>{if(data.checkout_url)window.location.href=data.checkout_url;}).catch(err=>alert('Payment Gateway Error.'));" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer;">
+                    <button onclick="this.innerHTML='Connecting to Secure Server...'; fetch('https://api.surfaceproject.sg/api/create-checkout-session', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kit_type:'deposit',price:188})}).then(res=>res.json()).then(data=>{if(data.checkout_url)window.location.href=data.checkout_url;}).catch(err=>alert('Payment Gateway Error.'));" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer;">
                         Lock In S$188 Deposit
                     </button>
                 </div>

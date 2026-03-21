@@ -38,7 +38,7 @@ class KiloClawVideoEngine:
 
         try:
             # Step 1: Request the generation task
-            response = requests.post("https://api.dev.runwayml.com/v1/tasks", headers=headers, json=payload)
+            response = requests.post("https://api.runwayml.com/v1/tasks", headers=headers, json=payload)
             
             if response.status_code == 200:
                 task_id = response.json().get("id")
@@ -48,7 +48,7 @@ class KiloClawVideoEngine:
                 # Step 2: Poll for completion
                 while True:
                     time.sleep(5)
-                    status_res = requests.get(f"https://api.dev.runwayml.com/v1/tasks/{task_id}", headers=headers)
+                    status_res = requests.get(f"https://api.runwayml.com/v1/tasks/{task_id}", headers=headers)
                     status_data = status_res.json()
                     
                     if status_data.get("status") == "SUCCEEDED":

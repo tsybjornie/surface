@@ -21,7 +21,7 @@ app.add_middleware(
 
 # Mount the sub-applications
 app.mount("/vision", quoter_app)
-app.mount("/api", stripe_app)
+app.mount("/", stripe_app)
 
 @app.get("/")
 def health_check():
