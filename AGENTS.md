@@ -59,7 +59,7 @@ Box Type | The "Indecision" Cure | Contents | Price
 --- | --- | --- | ---
 **The Vibe Kit** | "I know my color family." | 4 Custom Tones (e.g., All Red, All Blue, All Green). | S$12
 **The Designer's Deck** | "I don't know what I want." | 12 Bestsellers (The "Safe" hits across all colors). | S$19
-**The Master Studio** | "I want the whole library." | 30 Tones (The full architectural spectrum). | S$29
+**The Master Studio** | "I want the whole library." | 34 Tones (The full architectural spectrum). | S$29
 
 ### KiloClaw Color Consultation Logic
 1. **The 'Whatever' Rule**: If a client asks for any specific color (Red, Green, Yellow, etc.), the AI must offer a Custom S$12 Vibe Kit for that color family.
