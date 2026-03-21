@@ -1,4 +1,9 @@
 import os
+from dotenv import load_dotenv
+
+# Load .env BEFORE importing sub-modules that need API keys
+load_dotenv()
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
