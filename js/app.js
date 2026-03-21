@@ -322,13 +322,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeBtn.addEventListener('click', closeCart);
     overlay.addEventListener('click', closeCart);
-    checkoutBtn.addEventListener('click', () => {
-        checkoutBtn.innerHTML = "Redirecting to Stripe...";
-        setTimeout(() => {
-            window.open('https://buy.stripe.com/test_dummy_link', '_blank');
-            closeCart();
+    checkoutBtn.addEventListener('click', async () => {
+        checkoutBtn.innerHTML = "Securely connecting...";
+        checkoutBtn.style.opacity = "0.7";
+        checkoutBtn.disabled = true;
+        
+        let kitType = 'vibe';
+        if (selectedPrice == 19) kitType = 'designer';
+        if (selectedPrice == 29) kitType = 'master';
+
+        try {
+            // Send request to our KiloClaw Stripe Server
+            const response = await fetch('https://your-live-backend.com/api/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    kit_type: kitType,
+                    price: parseInt(selectedPrice)
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.checkout_url) {
+                // Redirect user to the official Stripe Hosted Checkout Page
+                window.location.href = data.checkout_url;
+            } else {
+                alert("Payment gateway error. Please contact us on WhatsApp.");
+                checkoutBtn.innerHTML = "Checkout Securely";
+                checkoutBtn.style.opacity = "1";
+                checkoutBtn.disabled = false;
+            }
+        } catch (error) {
+            console.error("Stripe connection failed", error);
+            alert("Could not connect to payment gateway. Please ensure the backend is running.");
             checkoutBtn.innerHTML = "Checkout Securely";
-        }, 1500);
+            checkoutBtn.style.opacity = "1";
+            checkoutBtn.disabled = false;
+        }
     });
 
     // Attach to any button that says "Swatch Box"
@@ -432,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ⬇ Download Official Quote (PDF)
                     </button>
                     
-                    <button onclick="window.location.href='#deposit'" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer;">
+                    <button onclick="this.innerHTML='Connecting to Secure Server...'; fetch('https://your-live-backend.com/api/create-checkout-session', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kit_type:'deposit',price:188})}).then(res=>res.json()).then(data=>{if(data.checkout_url)window.location.href=data.checkout_url;}).catch(err=>alert('Payment Gateway Error.'));" style="width:100%; background:#c9b48a; color:#111; border:none; padding:1rem; font-family:'Inter',sans-serif; font-size:1rem; font-weight:500; cursor:pointer;">
                         Lock In S$188 Deposit
                     </button>
                 </div>
