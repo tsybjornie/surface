@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span style="font-size:1rem; color:#c9b48a;">S$29.00</span>
                     </div>
                     <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">"I want the whole library."</p>
-                    <p style="margin:0; font-size:0.75rem; color:rgba(255,255,255,0.4);">34 Tones — The full mineral spectrum.</p>
+                    <p style="margin:0; font-size:0.75rem; color:rgba(255,255,255,0.4);">38 Tones — The full mineral spectrum.</p>
                 </div>
                 
                 <hr style="border:none; border-top:1px solid rgba(255,255,255,0.06); margin: 2rem 0;">
