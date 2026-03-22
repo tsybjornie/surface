@@ -19,8 +19,8 @@ app.add_middleware(
     allow_origins=[
         "https://sonsoftheland.com",
         "https://www.sonsoftheland.com",
-        "https://surfaceproject.sg",
-        "https://www.surfaceproject.sg",
+        "https://sonsoftheland.com",
+        "https://www.sonsoftheland.com",
         "http://localhost",
         "http://localhost:3000"
     ],

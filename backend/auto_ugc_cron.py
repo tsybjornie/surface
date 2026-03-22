@@ -18,9 +18,9 @@ def run_daily_ugc_batch():
     # In a fully deployed setup, these images would come dynamically from xhs_scraper.py
     # For now, we cycle through your top tier reference images
     photos = [
-        "https://plainwork.sg/images/type-fine-plaster.png",
-        "https://plainwork.sg/images/microcement-hero.png",
-        "https://plainwork.sg/assets/liquid-metal-hero.png"
+        "https://sonsoftheland.com/images/type-fine-plaster.png",
+        "https://sonsoftheland.com/images/microcement-hero.png",
+        "https://sonsoftheland.com/assets/liquid-metal-hero.png"
     ]
     
     scripts = [
