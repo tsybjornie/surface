@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import time
 import requests
 
@@ -38,7 +40,7 @@ class KiloClawVideoEngine:
 
         try:
             # Step 1: Request the generation task
-            response = requests.post("https://api.runwayml.com/v1/tasks", headers=headers, json=payload)
+            response = requests.post("https://api.dev.runwayml.com/v1/tasks", headers=headers, json=payload)
             
             if response.status_code == 200:
                 task_id = response.json().get("id")
@@ -48,7 +50,7 @@ class KiloClawVideoEngine:
                 # Step 2: Poll for completion
                 while True:
                     time.sleep(5)
-                    status_res = requests.get(f"https://api.runwayml.com/v1/tasks/{task_id}", headers=headers)
+                    status_res = requests.get(f"https://api.dev.runwayml.com/v1/tasks/{task_id}", headers=headers)
                     status_data = status_res.json()
                     
                     if status_data.get("status") == "SUCCEEDED":
@@ -131,7 +133,7 @@ if __name__ == "__main__":
     
     # Example input: A static photo scraped from Xiaohongshu
     # Replace this with your actual image URL when running live
-    test_photo_url = "https://sonsoftheland.com/images/type-fine-plaster.png" 
+    test_photo_url = "https://plainwork.sg/images/type-fine-plaster.png" 
     
     test_script = "Most standard HDB paints are basically plastic. Look at this living room. For true Wabi-Sabi, you need the real deal. We use 100 percent Breathable Lime Paint. Drop a 'price' below to get our 12 dollar Vibe Kit."
     

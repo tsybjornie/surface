@@ -6,3 +6,5 @@ openai
 requests
 playwright
 stripe
+schedule
+python-dotenv

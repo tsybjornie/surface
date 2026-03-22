@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 from typing import Optional
@@ -27,7 +29,7 @@ def encode_image(file_content):
     return base64.b64encode(file_content).decode('utf-8')
 
 @app.post("/api/analyze-floorplan", response_model=QuoteResponse)
-async def analyze_floorplan(file: UploadFile = File(...)):
+async def analyze_floorplan(file: UploadFile):
     """
     Uses OpenAI GPT-4o Vision to analyze an uploaded floorplan.
     Extracts the floor area and calculates the wall area, quote, and upsell logic.

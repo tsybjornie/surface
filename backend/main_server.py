@@ -1,12 +1,10 @@
 import os
-from dotenv import load_dotenv
-
-# Load .env BEFORE importing sub-modules that need API keys
-load_dotenv()
-
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Import our two KiloClaw API routers
 from vision_quoter import app as quoter_app
@@ -15,10 +13,17 @@ from stripe_server import app as stripe_app
 # Create a master FastAPI application
 app = FastAPI(title="KiloClaw Master Server")
 
-# Configure CORS to allow the frontend to talk to this DO Droplet
+# Configure CORS to explicitly allow BOTH www and non-www Vercel domains
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict to ["https://sonsoftheland.com", "https://sonsoftheland.com"]
+    allow_origins=[
+        "https://sonsoftheland.com",
+        "https://www.sonsoftheland.com",
+        "https://surfaceproject.sg",
+        "https://www.surfaceproject.sg",
+        "http://localhost",
+        "http://localhost:3000"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
