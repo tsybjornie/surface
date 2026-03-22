@@ -96,7 +96,7 @@ class KiloClawVideoEngine:
                     "voice": {
                         "type": "text",
                         "input_text": script_text,
-                        "voice_id": "en-US-JennyNeural"
+                        "voice_id": "1bd001e7e50f421d891986aad5158bc8" # Fixed to a verified HeyGen Voice ID
                     },
                     "background": {
                         "type": "video",
@@ -120,7 +120,8 @@ class KiloClawVideoEngine:
                 print(f"-> View Status/Download: https://api.heygen.com/v1/video_status.get?video_id={video_id}")
                 return video_id
             else:
-                print(f"HeyGen API Error: {response.status_code} - {response.text}")
+                print(f"HeyGen API Error: {response.status_code}")
+                print(f"HeyGen Raw Response: {response.text}")
                 return None
                 
         except Exception as e:
