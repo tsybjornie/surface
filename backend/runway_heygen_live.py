@@ -90,7 +90,7 @@ class KiloClawVideoEngine:
                 {
                     "character": {
                         "type": "avatar",
-                        "avatar_id": "Daisy-inTshirt-20220818", # Professional minimalist avatar
+                        "avatar_id": "Anna_public_3_20240108", # Professional minimalist avatar
                         "avatar_style": "normal"
                     },
                     "voice": {
