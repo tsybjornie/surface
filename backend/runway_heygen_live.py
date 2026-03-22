@@ -131,7 +131,7 @@ if __name__ == "__main__":
     
     # Example input: A static photo scraped from Xiaohongshu
     # Replace this with your actual image URL when running live
-    test_photo_url = "https://plainwork.sg/images/type-fine-plaster.png" 
+    test_photo_url = "https://sonsoftheland.com/images/type-fine-plaster.png" 
     
     test_script = "Most standard HDB paints are basically plastic. Look at this living room. For true Wabi-Sabi, you need the real deal. We use 100 percent Breathable Lime Paint. Drop a 'price' below to get our 12 dollar Vibe Kit."
     

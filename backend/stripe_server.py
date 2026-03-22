@@ -9,7 +9,7 @@ app = FastAPI(title="Plainwork Stripe Server")
 # Enable CORS for the frontend to communicate with the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict this to "https://surfaceproject.sg" in production
+    allow_origins=["*"],  # Restrict this to "https://sonsoftheland.com" in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -72,8 +72,8 @@ async def create_checkout_session(req: CheckoutRequest):
                 "statement_descriptor": "ORIGINAL*PLAINWORK"
             },
             # Change these URLs to your live domain
-            success_url="https://surfaceproject.sg/success.html",
-            cancel_url="https://surfaceproject.sg/",
+            success_url="https://sonsoftheland.com/success.html",
+            cancel_url="https://sonsoftheland.com/",
             shipping_address_collection={"allowed_countries": ["SG"]} if req.kit_type != 'deposit' else None,
         )
 

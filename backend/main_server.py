@@ -18,7 +18,7 @@ app = FastAPI(title="KiloClaw Master Server")
 # Configure CORS to allow the frontend to talk to this DO Droplet
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict to ["https://plainwork.sg", "https://surfaceproject.sg"]
+    allow_origins=["*"], # In production, restrict to ["https://sonsoftheland.com", "https://sonsoftheland.com"]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

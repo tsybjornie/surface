@@ -11,7 +11,7 @@ print("Starting sequence to prove Runway + HeyGen pipeline is functional...\n")
 engine = KiloClawVideoEngine()
 
 # The test image and script
-test_photo_url = "https://sonsoftheland.com/images/type-fine-plaster.png" 
+test_photo_url = "https://plainwork.sg/images/type-fine-plaster.png" 
 test_script = "Most standard HDB paints are basically plastic. Look at this living room. For true Wabi-Sabi, you need the real deal. We use 100 percent Breathable Lime Paint. Drop a 'price' below to get our 12 dollar Vibe Kit."
 
 print("[1] Requesting Cinematic B-Roll from RunwayML...")
