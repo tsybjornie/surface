@@ -40,7 +40,7 @@ class KiloClawVideoEngine:
 
         try:
             # Step 1: Request the generation task
-            response = requests.post("https://api.dev.runwayml.com/v1/tasks", headers=headers, json=payload)
+            response = requests.post("https://api.dev.runwayml.com/v1/image_to_video", headers=headers, json=payload)
             
             if response.status_code == 200:
                 task_id = response.json().get("id")
