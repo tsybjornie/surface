@@ -53,20 +53,37 @@ async def create_checkout_session(req: CheckoutRequest):
         if not selected_product:
             raise HTTPException(status_code=400, detail="Invalid product selected")
 
+        # Calculate processing fee: 3.4% + S$0.50 (Stripe SG rate)
+        product_amount = selected_product['amount']  # in cents
+        processing_fee = int(product_amount * 0.034) + 50  # 3.4% + 50 cents
+
         # Create Stripe Checkout Session
         session = stripe.checkout.Session.create(
             payment_method_types=['card', 'paynow', 'grabpay'],
-            line_items=[{
-                'price_data': {
-                    'currency': 'sgd',
-                    'product_data': {
-                        'name': selected_product['name'],
-                        'description': selected_product['description'],
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'sgd',
+                        'product_data': {
+                            'name': selected_product['name'],
+                            'description': selected_product['description'],
+                        },
+                        'unit_amount': product_amount,
                     },
-                    'unit_amount': selected_product['amount'],
+                    'quantity': 1,
                 },
-                'quantity': 1,
-            }],
+                {
+                    'price_data': {
+                        'currency': 'sgd',
+                        'product_data': {
+                            'name': 'Payment Processing Fee',
+                            'description': 'Secure payment gateway fee (non-refundable)',
+                        },
+                        'unit_amount': processing_fee,
+                    },
+                    'quantity': 1,
+                },
+            ],
             mode='payment',
             payment_intent_data={
                 "statement_descriptor": "ORIGINAL*PLAINWORK"
