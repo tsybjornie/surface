@@ -100,7 +100,8 @@ class KiloClawVideoEngine:
                     },
                     "background": {
                         "type": "video",
-                        "url": background_video_url
+                        "url": background_video_url,
+                        "play_style": "loop"
                     }
                 }
             ],
