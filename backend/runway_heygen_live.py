@@ -40,7 +40,7 @@ class KiloClawVideoEngine:
 
         try:
             # Step 1: Request the generation task
-            response = requests.post("https://api.dev.runwayml.com/v1/tasks", headers=headers, json=payload)
+            response = requests.post("https://api.dev.runwayml.com/v1/image_to_video", headers=headers, json=payload)
             
             if response.status_code == 200:
                 task_id = response.json().get("id")
@@ -90,17 +90,18 @@ class KiloClawVideoEngine:
                 {
                     "character": {
                         "type": "avatar",
-                        "avatar_id": "Daisy-inTshirt-20220818", # Professional minimalist avatar
+                        "avatar_id": "Anna_public_3_20240108", # Professional minimalist avatar
                         "avatar_style": "normal"
                     },
                     "voice": {
                         "type": "text",
                         "input_text": script_text,
-                        "voice_id": "en-US-JennyNeural"
+                        "voice_id": "1bd001e7e50f421d891986aad5158bc8" # Fixed to a verified HeyGen Voice ID
                     },
                     "background": {
                         "type": "video",
-                        "url": background_video_url
+                        "url": background_video_url,
+                        "play_style": "loop"
                     }
                 }
             ],
@@ -120,7 +121,8 @@ class KiloClawVideoEngine:
                 print(f"-> View Status/Download: https://api.heygen.com/v1/video_status.get?video_id={video_id}")
                 return video_id
             else:
-                print(f"HeyGen API Error: {response.status_code} - {response.text}")
+                print(f"HeyGen API Error: {response.status_code}")
+                print(f"HeyGen Raw Response: {response.text}")
                 return None
                 
         except Exception as e:
