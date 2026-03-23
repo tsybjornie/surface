@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import stripe
 
-app = FastAPI(title="Plainwork Stripe Server")
+app = FastAPI(title="Sons of the Land Stripe Server")
 
 # Enable CORS for the frontend to communicate with the backend
 app.add_middleware(
@@ -88,7 +88,7 @@ async def create_checkout_session(req: CheckoutRequest):
             ],
             mode='payment',
             payment_intent_data={
-                "statement_descriptor": "ORIGINAL*PLAINWORK"
+                "statement_descriptor": "ORIGINAL*SONSOFLAND"
             },
             # Change these URLs to your live domain
             success_url="https://sonsoftheland.com/success.html",

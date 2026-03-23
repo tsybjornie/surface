@@ -26,7 +26,7 @@ payload = {
         },
         "voice": {
             "type": "text",
-            "input_text": "This is Plainwork. The only paint that turns to stone.",
+            "input_text": "This is Sons of the Land. The only paint that turns to stone.",
             "voice_id": "1bd001e7e50f421d891986aad5158bc8"
         },
         "background": {

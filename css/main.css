@@ -1966,3 +1966,210 @@ ul {
 #pricing .btn {
     color: var(--color-white) !important;
 }
+
+/* ========================================
+   RESPONSIVE — TABLET (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Header — mobile nav */
+    .site-header {
+        min-width: calc(100vw - 2rem);
+        padding: 0.6rem 1.2rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(15, 13, 11, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        gap: 1.25rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    /* Hero */
+    .hero h1 {
+        font-size: clamp(2.4rem, 10vw, 4rem);
+    }
+
+    .hero-content {
+        padding: 0 1.5rem 2.5rem;
+    }
+
+    .hero-subtext p {
+        font-size: 0.58rem;
+        letter-spacing: 0.15em;
+    }
+
+    /* BTO Pricing inline boxes — stack vertically */
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Services grid — single column */
+    .services-grid,
+    .services-grid.large-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Option grids */
+    .option-grid-large {
+        grid-template-columns: 1fr;
+    }
+
+    /* Qualification grid — single column */
+    .qualification-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Process split — stack vertically */
+    .process-split {
+        flex-direction: column;
+    }
+
+    .process-photo {
+        width: 100%;
+    }
+
+    .process-text {
+        width: 100%;
+    }
+
+    /* Detail hero */
+    .detail-hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+
+    /* Footer — stack columns */
+    .footer-nav-row {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .footer-cta-link {
+        align-self: flex-start;
+    }
+
+    /* Photo break */
+    .photo-break {
+        height: 40vh;
+    }
+
+    /* Suitability grid — stack */
+    .suitability-grid {
+        grid-template-columns: 1fr !important;
+        flex-direction: column;
+    }
+
+    .suitability-column {
+        width: 100% !important;
+    }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+
+    /* Hero — prevent overflow */
+    .hero h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+        word-break: break-word;
+    }
+
+    .hero-content {
+        padding: 0 1.25rem 2rem;
+    }
+
+    .hero p {
+        font-size: 0.85rem;
+    }
+
+    .hero-subtext p {
+        font-size: 0.52rem;
+        letter-spacing: 0.12em;
+        word-break: break-word;
+    }
+
+    /* Container tighter padding */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Section spacing */
+    .section-padding {
+        padding: var(--spacing-md) 0;
+    }
+
+    /* Service cards — smaller padding */
+    .service-card,
+    .service-card.dark {
+        padding: var(--spacing-md);
+    }
+
+    .option-card-large {
+        padding: var(--spacing-md);
+    }
+
+    /* Detail hero */
+    .detail-hero {
+        padding: calc(var(--spacing-lg) + 80px) 0 var(--spacing-md);
+    }
+
+    .detail-hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    /* FAQ items */
+    .faq-item h3 {
+        font-size: 1rem;
+    }
+
+    /* Pricing boxes inline — stack */
+    [style*="display: flex"][style*="gap: 2rem"] {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    /* Alert box */
+    .alert-box {
+        padding: var(--spacing-md) !important;
+    }
+
+    /* WhatsApp button — ensure not overlapping content */
+    .whatsapp-float {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Footer bottom */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    /* Brand logo */
+    .brand-logo {
+        font-size: 0.72rem;
+    }
+}

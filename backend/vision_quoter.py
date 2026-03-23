@@ -92,9 +92,9 @@ async def analyze_floorplan(file: UploadFile):
         room_type=room_type,
         quote_sgd=quote_sgd,
         upsell_recommendation=upsell,
-        deposit_link="https://pay.plainwork.com/deposit/188",
-        invoice_header="Plainwork — A Mineral Surface Studio",
+        deposit_link="https://pay.sonsoftheland.com/deposit/188",
+        invoice_header="Sons of the Land — A Mineral Surface Studio",
         billing_entity="Managed and Installed by Original Copy Pte Ltd (Singapore)",
         material_origin="Mineral Lime formulated by Futureproof Industries Sdn Bhd (Malaysia)",
-        stripe_descriptor="ORIGINAL*PLAINWORK"
+        stripe_descriptor="ORIGINAL*SONSOFLAND"
     )

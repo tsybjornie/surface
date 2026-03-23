@@ -1,5 +1,5 @@
 /**
- * Plain Work — Main JavaScript
+ * Sons of the Land — Main JavaScript
  * Includes: navigation, scroll reveal, micro-animations, video hero
  */
 
@@ -197,7 +197,7 @@ function initContactForm() {
         }[system] || 'Not specified';
 
         const text = [
-            `Hi Plain Work! I'd like to enquire about a surface project.`,
+            `Hi Sons of the Land! I'd like to enquire about a surface project.`,
             ``,
             `Name: ${name}`,
             `Email: ${email}`,
@@ -451,7 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- Step 3: Result & PDF Download -->
                 <div id="pw-quoter-step-3" style="display:none; text-align:center;">
                     <h3 style="font-family:'DM Serif Display',serif; font-size:1.8rem; margin-bottom:0.5rem; color:#c9b48a;">Analysis Complete</h3>
-                    <p style="opacity:0.8; margin-bottom:2rem; font-size:0.9rem;">Your official Plainwork estimate is ready.</p>
+                    <p style="opacity:0.8; margin-bottom:2rem; font-size:0.9rem;">Your official Sons of the Land estimate is ready.</p>
                     
                     <div style="background:#1a1a18; padding:1.5rem; border:1px solid rgba(255,255,255,0.1); margin-bottom:2rem;">
                         <div style="font-size:0.8rem; opacity:0.6; text-transform:uppercase; margin-bottom:0.5rem;">Estimated Investment</div>
@@ -475,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div style="padding: 60px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #111; background: #fff; width: 800px; max-width:100%;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 30px; border-bottom: 2px solid #111; padding-bottom: 20px;">
                     <div>
-                        <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; text-transform: uppercase;">Plain Work</h1>
+                        <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; text-transform: uppercase;">Sons of the Land</h1>
                         <p style="margin: 5px 0 0 0; color: #666; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">A Mineral Surface Studio</p>
                     </div>
                     <div style="text-align: right; font-size: 14px; color: #444;">
@@ -697,7 +697,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const opt = {
             margin:       0,
-            filename:     'Plainwork_Estimate.pdf',
+            filename:     'SonsOfTheLand_Estimate.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }

@@ -130,7 +130,7 @@ class KiloClawVideoEngine:
             return None
 
 if __name__ == "__main__":
-    print("=== PLAINWORK GOD-TIER UGC PIPELINE ===")
+    print("=== SONS OF THE LAND GOD-TIER UGC PIPELINE ===")
     engine = KiloClawVideoEngine()
     
     # Example input: A static photo scraped from Xiaohongshu
